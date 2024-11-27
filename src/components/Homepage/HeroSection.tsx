@@ -20,6 +20,9 @@ const HeroSection = () => {
     navigate(`/bike-listing?filterBy=${filterBy}&searchTerm=${searchTerm}`);
   };
 
+  const [selectedVehicle, setSelectedVehicle] = useState("Car");
+
+  const vehicles = ["Car", "Van", "Minibus", "Coupe", "Bike"];
   return (
     // <div className="relative w-full h-[100vh] bg-gradient text-white overflow-hidden">
     // <div className="absolute inset-0">
@@ -72,7 +75,7 @@ const HeroSection = () => {
     //     </div>
     //   </div>
     // </div>
-    <div className="relative w-full h-screen bg-black">
+    <div className="relative w-full h-screen bg-black py-10">
       {/* Video Background */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
@@ -89,7 +92,7 @@ const HeroSection = () => {
       {/* Hero Content */}
       <div className="relative z-10 flex flex-col items-center justify-center text-center text-white h-full px-4">
         {/* Logo */}
-        <h1 className="text-4xl font-bold text-orange-500">CRUISE<span className="text-white">CONTROL</span></h1>
+        <h1 className="mt-12 text-4xl font-bold text-orange-500">CRUISE<span className="text-white">CONTROL</span></h1>
 
         {/* Headline */}
         <h2 className="text-4xl md:text-5xl font-bold my-4">
@@ -114,7 +117,7 @@ const HeroSection = () => {
         </div>
 
         {/* Form Section */}
-        <form className="w-5/12" onSubmit={handleSubmit}>
+        {/* <form className="w-5/12" onSubmit={handleSubmit}>
              <div className="mt-10 flex items-center bg-white/20 rounded-none overflow-hidden justify-between ">
                 <input
                  className="text-base bg-transparent text-white/80 flex-grow outline-none px-2 "
@@ -136,13 +139,53 @@ const HeroSection = () => {
                  </select>
                  <button
                   type="submit"
-                   className="bg-orange-500 text-white text-base rounded-none px-4 py-2 border border-orange-500"
+                   className="bg-orange-500 text-white text-base rounded-none px-4 py-2 border  border-orange-500"
                  >
                    Search
                  </button>
                </div>
              </div>
-           </form>
+           </form> */}
+        <div className="mt-10 bg-black opacity-85 text-white p-6 rounded-md w-2/5 mx-auto">
+          
+          <div className="flex space-x-2 mb-6">
+            {vehicles.map((vehicle) => (
+              <button
+                key={vehicle}
+                className={`flex-1 py-2 rounded-md text-center text-sm font-medium ${
+                  selectedVehicle === vehicle
+                    ? "bg-orange-500 text-white"
+                    : "bg-gray-800 text-gray-400"
+                }`}
+                onClick={() => setSelectedVehicle(vehicle)}
+              >
+                {vehicle}
+              </button>
+            ))}
+          </div>
+          <form className="space-y-4">
+            <div className="flex gap-2">
+              
+              <select
+                className="w-full px-3 py-2 rounded-md bg-gray-800 text-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              >
+                <option value="">Model</option>
+                <option value="Sedan">Sedan</option>
+                <option value="SUV">SUV</option>
+                <option value="Hatchback">Hatchback</option>
+              </select>
+              <button
+              type="submit"
+              className="w-1/2 py-2 rounded-md bg-orange-500 text-white text-sm font-medium hover:bg-orange-600"
+            >
+              Find a Vehicle
+            </button>
+            </div>
+          
+            
+           
+          </form>
+        </div>
       </div>
     </div>
   );

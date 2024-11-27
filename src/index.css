@@ -219,3 +219,16 @@ button:focus-visible {
     background-color: #ffffff;
   }
 } */
+/* Add these Tailwind utility classes in your Tailwind setup */
+.input-field {
+  @apply bg-gray-100 border-none p-3 mb-4 w-full rounded-md;
+}
+.btn {
+  @apply bg-red-500 text-white px-6 py-3 rounded-md font-bold uppercase hover:bg-red-600 transition;
+}
+.ghost-btn {
+  @apply border border-white text-white px-6 py-3 rounded-md font-bold uppercase bg-transparent hover:bg-white hover:text-red-500 transition;
+}
+.social {
+  @apply flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full hover:bg-gray-200 transition;
+}

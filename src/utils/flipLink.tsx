@@ -14,7 +14,7 @@ export const FlipLink = ({ children, href }: FlipLinkProps) => {
       initial="initial"
       whileHover="hovered"
       href={href}
-      className="relative block overflow-hidden hover:border-b-2 mx-1 hover:border-custom-green border-transparent whitespace-nowrap  uppercase text-sm"
+      className="relative block overflow-hidden hover:border-b-2 mx-1 hover:border-orange-600 border-transparent whitespace-nowrap  uppercase text-sm"
       style={{
         lineHeight: 1,
       }}

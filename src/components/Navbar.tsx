@@ -232,8 +232,8 @@ export const Navbar = () => {
                   exit={{ opacity: 0, y: 20 }}
                   className="flex items-end  "
                 >
-                  <FlipLink href="/login">login</FlipLink>
-                  <FlipLink href="/signup">signup</FlipLink>
+                  <button className="hover:border-orange-700 border-2 rounded-md bg-orange-500 py-3"><FlipLink  href="/login">login</FlipLink></button>
+               
                 </motion.div>
               )}
             </AnimatePresence>
