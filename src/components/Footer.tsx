@@ -91,7 +91,7 @@ const Footer = () => {
           <p className="mb-4 text-gray-400">
             Our estimated global carbon emissions by investing in greenhouse
           </p>
-          <form>
+          <form className="flex">
             <input
               type="email"
               placeholder="Email Address"
@@ -99,7 +99,7 @@ const Footer = () => {
             />
             <button
               type="submit"
-              className="w-full bg-orange-500 text-white py-2 rounded-md hover:bg-orange-600 transition"
+              className="h-2/5  bg-orange-500 text-white rounded-md hover:bg-orange-600 transition"
             >
               Subscribe
             </button>
