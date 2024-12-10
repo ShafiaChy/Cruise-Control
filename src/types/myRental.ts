@@ -1,4 +1,4 @@
-import { TAdminBike } from "./bike";
+import { TAdminCar } from "./car";
 import { TAdminUser } from "./user";
 
 export type TMyRental = {
@@ -31,7 +31,7 @@ export type TRental = {
 export type TAdminRental = {
   _id: string;
   userId: TAdminUser;
-  bikeId: TAdminBike;
+  bikeId: TAdminCar;
   startTime: Date;
   returnTime?: Date | null;
   totalCost: number;

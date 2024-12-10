@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useGetAllBikesQuery } from "../redux/features/bikes/bikesApi";
-import { TBike } from "../types/bike";
+import { TCar } from "../types/car";
 import Spinner from "../components/Spinner";
 import SingleBike from "../components/User/SingleBike";
 
@@ -24,7 +24,7 @@ const BikeListing = () => {
   const [sortOrder, setSortOrder] = useState("");
 
   const { data, isLoading } = useGetAllBikesQuery(undefined);
-  const bikes: TBike[] = data?.data || [];
+  const bikes: TCar[] = data?.data || [];
 
   // Dynamic filter options
   const filterOptions = {
@@ -57,29 +57,29 @@ const BikeListing = () => {
 
   // Filter and sort bikes
   const filteredBikes = bikes
-    .filter((bike: TBike) =>
+    .filter((bike: TCar) =>
       bike.name.toLowerCase().includes(searchQuery.toLowerCase())
     )
     .filter(
-      (bike: TBike) =>
+      (bike: TCar) =>
         !filters.priceRange ||
         filters.priceRange === "All" ||
         bike.pricePerHour <= Number(filters.priceRange)
     )
     .filter(
-      (bike: TBike) =>
+      (bike: TCar) =>
         !filters.brand ||
         filters.brand === "All" ||
         bike.brand.toLowerCase() === filters.brand.toLowerCase()
     )
     .filter(
-      (bike: TBike) =>
+      (bike: TCar) =>
         !filters.model ||
         filters.model === "All" ||
         bike.model.toLowerCase() === filters.model.toLowerCase()
     )
     .filter(
-      (bike: TBike) =>
+      (bike: TCar) =>
         !filters.availability ||
         filters.availability === "All" ||
         (filters.availability === "Available" && bike.isAvailable) ||
@@ -205,7 +205,7 @@ const BikeListing = () => {
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-6">
                   {filteredBikes && filteredBikes.length > 0 ? (
-                    filteredBikes.map((bike: TBike) => (
+                    filteredBikes.map((bike: TCar) => (
                       <SingleBike key={bike._id} bike={bike} />
                     ))
                   ) : (

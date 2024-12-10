@@ -1,13 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AnimatePresence, motion } from "framer-motion";
 import { FaTimes } from "react-icons/fa";
 import { useForm } from "react-hook-form";
-import { TBike } from "../../types/bike";
+import { TCar } from "../../types/car";
 import { useEffect, useState } from "react";
 import { GiCheckMark } from "react-icons/gi";
 
 type BikeModalProps = {
-  bike?: TBike;
-  onSubmit: (data: Omit<TBike, "_id">) => void;
+  bike?: TCar;
+  onSubmit: (data: Omit<TCar, "_id">) => void;
   onClose: () => void;
 };
 
@@ -17,7 +18,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
     handleSubmit,
     setValue,
     formState: { errors },
-  } = useForm<TBike>({
+  } = useForm<TCar>({
     defaultValues: bike || {
       name: "",
       model: "",
@@ -47,7 +48,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
   useEffect(() => {
     if (bike) {
       Object.keys(bike).forEach((key) => {
-        setValue(key as keyof TBike, (bike as any)[key]);
+        setValue(key as keyof TCar, (bike as any)[key]);
       });
     }
   }, [bike, setValue]);
@@ -70,7 +71,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
     }
   };
 
-  const handleFormSubmit = async (data: Omit<TBike, "_id">) => {
+  const handleFormSubmit = async (data: Omit<TCar, "_id">) => {
     try {
       let imageUrl = bike?.image;
 
@@ -134,7 +135,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
                     {...register("name", { required: "Name is required" })}
                   />
                   <p
-                    className={`text-red-700 text-xs italic text-right h-1 ${
+                    className={`text-orange-700 text-xs italic text-right h-1 ${
                       errors.name ? "block" : "invisible"
                     }`}
                   >
@@ -205,7 +206,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
                       {...register("model", { required: "Model is required" })}
                     />
                     <p
-                      className={`text-red-700 text-xs italic text-right h-1 ${
+                      className={`text-orange-700 text-xs italic text-right h-1 ${
                         errors.model ? "block" : "invisible"
                       }`}
                     >
@@ -226,7 +227,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
                       {...register("brand", { required: "Brand is required" })}
                     />
                     <p
-                      className={`text-red-700 text-xs italic text-right h-1 ${
+                      className={`text-orange-700 text-xs italic text-right h-1 ${
                         errors.brand ? "block" : "invisible"
                       }`}
                     >
@@ -250,7 +251,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
                       })}
                     />
                     <p
-                      className={`text-red-700 text-xs italic text-right h-4 mt-1 ${
+                      className={`text-orange-700 text-xs italic text-right h-4 mt-1 ${
                         errors.pricePerHour ? "block" : "invisible"
                       }`}
                     >
@@ -338,7 +339,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
                     })}
                   />
                   <p
-                    className={`text-red-700 text-xs italic text-right h-5 ${
+                    className={`text-orange-700 text-xs italic text-right h-5 ${
                       errors.cc ? "block" : "invisible"
                     }`}
                   >
@@ -362,7 +363,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
                     })}
                   />
                   <p
-                    className={`text-red-700 text-xs italic text-right h-1 ${
+                    className={`text-orange-700 text-xs italic text-right h-1 ${
                       errors.year ? "block" : "invisible"
                     }`}
                   >

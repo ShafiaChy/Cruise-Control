@@ -1,4 +1,4 @@
-export type TBike = {
+export type TCar = {
   _id: string;
   name: string;
   model: string;
@@ -11,14 +11,14 @@ export type TBike = {
   description: string;
 };
 
-export type TBikeError = {
+export type TCarError = {
   success: boolean;
   statusCode: number;
   message: string;
-  data: TBike[] | null;
+  data: TCar[] | null;
 };
 
-export type TAdminBike = {
+export type TAdminCar = {
   _id: string;
   name: string;
 };

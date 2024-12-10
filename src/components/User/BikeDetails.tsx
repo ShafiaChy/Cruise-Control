@@ -1,16 +1,16 @@
 import { useParams } from "react-router-dom";
-import { useGetBikeByIdQuery } from "../../redux/features/bikes/bikesApi";
+import { useGeTCarByIdQuery } from "../../redux/features/bikes/bikesApi";
 import { useState } from "react";
 import Spinner from "../Spinner";
 import LoadingError from "../LoadingError";
-import { TBike } from "../../types/bike";
+import { TCar } from "../../types/car";
 import PaymentModal from "../Payment/PaymentModal";
 import { useAppSelector } from "../../redux/hooks";
 import { useCurrentUser } from "../../redux/features/auth/authSlice";
 
 const BikeDetails = () => {
   const { bikeId } = useParams();
-  const { data, error, isLoading } = useGetBikeByIdQuery(bikeId);
+  const { data, error, isLoading } = useGeTCarByIdQuery(bikeId);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const isUser = useAppSelector(useCurrentUser);
 
@@ -22,7 +22,7 @@ const BikeDetails = () => {
     return <LoadingError />;
   }
 
-  const bike: TBike = data.data;
+  const bike: TCar = data.data;
 
   return (
     // <section className="w-11/12 mx-auto my-28">

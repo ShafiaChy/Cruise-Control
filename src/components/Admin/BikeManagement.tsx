@@ -6,7 +6,7 @@ import {
   useUpdateBikeMutation,
   useDeleteBikeMutation,
 } from "../../redux/features/bikes/bikesApi";
-import { TBike } from "../../types/bike";
+import { TCar } from "../../types/car";
 import {
   FaCheckCircle,
   FaEdit,
@@ -29,10 +29,10 @@ const BikeManagement = () => {
   const [createBike] = useCreateBikeMutation();
   const [updateBike] = useUpdateBikeMutation();
   const [deleteBike] = useDeleteBikeMutation();
-  const [selectedBike, setSelectedBike] = useState<TBike | null>(null);
+  const [selectedBike, setSelectedBike] = useState<TCar | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
-  const [bikeToDelete, setBikeToDelete] = useState<string | null>(null);
+  const [bikeToDelete, seTCarToDelete] = useState<string | null>(null);
 
   const [filter, setFilter] = useState("");
   const [selectedBrand, setSelectedBrand] = useState("All");
@@ -44,16 +44,16 @@ const BikeManagement = () => {
   const filterOptions = {
     brand: [
       "All",
-      ...new Set(bikes.map((bike: TBike) => bike.brand)),
+      ...new Set(bikes.map((bike: TCar) => bike.brand)),
     ] as string[],
     model: [
       "All",
-      ...new Set(bikes.map((bike: TBike) => bike.model)),
+      ...new Set(bikes.map((bike: TCar) => bike.model)),
     ] as string[],
     availability: ["All", "Available", "Unavailable"] as string[],
   };
 
-  const handleEditBike = (bike: TBike) => {
+  const handleEdiTCar = (bike: TCar) => {
     setSelectedBike(bike);
     setIsModalOpen(true);
   };
@@ -64,7 +64,7 @@ const BikeManagement = () => {
   };
 
   const handleDeleteBike = async (bikeId: string) => {
-    setBikeToDelete(bikeId);
+    seTCarToDelete(bikeId);
     setIsConfirmModalOpen(true);
   };
 
@@ -77,7 +77,7 @@ const BikeManagement = () => {
         console.error("Failed to delete bike", error);
       } finally {
         setIsConfirmModalOpen(false);
-        setBikeToDelete(null);
+        seTCarToDelete(null);
       }
     }
   };
@@ -86,7 +86,7 @@ const BikeManagement = () => {
     setIsModalOpen(false);
   };
 
-  const handleModalSubmit = async (bikeData: Omit<TBike, "_id">) => {
+  const handleModalSubmit = async (bikeData: Omit<TCar, "_id">) => {
     const toastId = toast.loading("Processing...");
 
     // try {
@@ -147,7 +147,7 @@ const BikeManagement = () => {
     setSelectedAvailability(event.target.value);
   };
 
-  const filteredBikes = bikes.filter((bike: TBike) => {
+  const filteredBikes = bikes.filter((bike: TCar) => {
     const matchesBrand =
       selectedBrand === "All" || bike.brand === selectedBrand;
     const matchesModel =
@@ -329,7 +329,7 @@ const BikeManagement = () => {
               </thead>
 
               <tbody className="bg-white divide-y divide-gray-300">
-                {filteredBikes.map((bike: TBike, index: number) => (
+                {filteredBikes.map((bike: TCar, index: number) => (
                   <tr key={bike._id} className="hover:bg-gray-100">
                     <td className="py-4 text-sm font-bold text-gray-800 px-2 md:px-4 text-center w-8">
                       {index + 1}
@@ -371,7 +371,7 @@ const BikeManagement = () => {
                     </td>
                     <td className="text-sm text-center flex items-center justify-center gap-1 mx-4 text-gray-500 w-20 px-4 md:px-8 py-4">
                       <button
-                        onClick={() => handleEditBike(bike)}
+                        onClick={() => handleEdiTCar(bike)}
                         className="text-green-600 bg-transparent border-none hover:text-green-800 focus:outline-none"
                       >
                         <FaEdit className="w-4 h-4" aria-label="Edit Bike" />

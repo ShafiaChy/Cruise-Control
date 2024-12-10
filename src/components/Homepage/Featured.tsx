@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useGetAllBikesQuery } from "../../redux/features/bikes/bikesApi";
-import { TBike } from "../../types/bike";
+import { TCar } from "../../types/car";
 import Spinner from "../Spinner";
 import { useAppSelector } from "../../redux/hooks";
 import { useCurrentUser } from "../../redux/features/auth/authSlice";
@@ -16,7 +16,7 @@ const BikeGrid = () => {
   }
 
   const availableBikes = bikes
-    .filter((bike: TBike) => bike.isAvailable)
+    .filter((bike: TCar) => bike.isAvailable)
     .slice(0, 10);
 
   return (
@@ -26,7 +26,7 @@ const BikeGrid = () => {
           Our Featured Bikes
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-          {availableBikes.map((bike: TBike) => (
+          {availableBikes.map((bike: TCar) => (
             <div
               key={bike._id}
               className="relative overflow-hidden rounded-none shadow-lg group"

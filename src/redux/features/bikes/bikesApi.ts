@@ -7,7 +7,7 @@ export const bikesApi = baseApi.injectEndpoints({
       providesTags: ["Bikes"],
     }),
 
-    getBikeById: builder.query({
+    geTCarById: builder.query({
       query: (id) => ({
         url: `/bikes/${id}`,
         method: "GET",
@@ -15,7 +15,10 @@ export const bikesApi = baseApi.injectEndpoints({
     }),
 
     createBike: builder.mutation({
-      query: (bike) => ({
+      query: (bike) => (
+        console.log(bike),
+        {
+        
         url: "/bikes",
         method: "POST",
         body: bike,
@@ -44,7 +47,7 @@ export const bikesApi = baseApi.injectEndpoints({
 
 export const {
   useGetAllBikesQuery,
-  useGetBikeByIdQuery,
+  useGeTCarByIdQuery,
   useCreateBikeMutation,
   useUpdateBikeMutation,
   useDeleteBikeMutation,

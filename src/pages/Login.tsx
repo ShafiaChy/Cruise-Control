@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import  { useState } from "react";
+import  { useRef, useState } from "react";
 import backgroundVideoUrl from '../assets/car-loginvideo.mp4'
 import { useLoginMutation, useSignupMutation } from "../redux/features/auth/authApi";
-import { useLocation, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../redux/hooks";
 import { toast } from "sonner";
 import { verifyToken } from "../utils/verifyToken";
@@ -15,6 +15,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loginButton, setLoginButton] = useState('login');
   const [signup] = useSignupMutation();
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -25,7 +26,6 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
-  const location = useLocation();
   const [login] = useLoginMutation();
   const dispatch = useAppDispatch();
 
@@ -89,9 +89,14 @@ console.log('hi')
           duration: 2000,
           className: "text-custom-green",
         });
+      
+         
         setTimeout(() => {
-          navigate("/login");
-        }, 2000);
+          console.log("Login successful!");
+          // Automatically click a button after success
+          buttonRef.current?.click();
+        }, 2000); 
+        
       }
     } catch (signUpError: any) {
       console.log(signUpError);
@@ -207,7 +212,7 @@ console.log('hi')
             <span className="text-white text-center">Or</span>
             <button 
             className="text-orange-500 bg-transparent hover:bg-transparent"
-            onClick={()=>handleClick(false, login)}>Sign In</button>
+            onClick={()=>handleClick(false, 'login')}>Sign In</button>
           </div>
          </div>
         </form>
@@ -297,6 +302,7 @@ console.log('hi')
           <h1 className="text-2xl font-bold">Welcome Back!</h1>
           <p className="mt-4">To keep connected with us, please login with your personal info</p>
           <button
+          ref={buttonRef} 
             className="ghost-btn mt-6"
             onClick={()=>handleClick(false, 'login')}
           >
