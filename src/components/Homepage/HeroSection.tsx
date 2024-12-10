@@ -148,7 +148,7 @@ const HeroSection = () => {
            </form> */}
         <div className="mt-10 bg-black opacity-85 text-white p-6 rounded-md w-2/5 mx-auto">
           
-          <div className="flex space-x-2 mb-6">
+          <div className="flex md:flex-row flex-col space-x-2 mb-6">
             {vehicles.map((vehicle) => (
               <button
                 key={vehicle}
@@ -164,7 +164,7 @@ const HeroSection = () => {
             ))}
           </div>
           <form className="space-y-4">
-            <div className="flex gap-2">
+            <div className="flex md:flex-row flex-col gap-2">
               
               <select
                 className="w-full px-3 py-2 rounded-md bg-gray-800 text-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"

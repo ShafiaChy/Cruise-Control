@@ -1,15 +1,26 @@
 import  { useState } from "react";
-
+import backgroundVideoUrl from '../assets/car-loginvideo.mp4'
 
 const Login = () => {
   const [isRightPanelActive, setIsRightPanelActive] = useState(false);
 
   return (
-    <div
-      className={`container mt-36 mx-auto relative w-[768px] max-w-full min-h-[480px] bg-[#131313] rounded-lg shadow-lg overflow-hidden ${
+   <div>
+    <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src={backgroundVideoUrl}
+        autoPlay
+        loop
+        muted
+        playsInline
+      ></video>
+      <div className="absolute inset-0 bg-black opacity-40"></div>
+     <div
+      className={`container  mt-36 mx-auto relative w-[768px] max-w-full min-h-[480px] bg-[#131313] rounded-lg shadow-lg overflow-hidden ${
         isRightPanelActive ? "right-panel-active" : ""
       }`}
     >
+     
       {/* Sign-Up Form */}
      {isRightPanelActive ?
         <form className=" h-full p-12 flex items-center justify-end">
@@ -131,6 +142,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+   </div>
   );
 };
 

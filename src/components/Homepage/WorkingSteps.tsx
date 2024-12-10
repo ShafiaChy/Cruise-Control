@@ -13,12 +13,12 @@ const WorkingSteps = () => {
       ];
 
   return (
-    <section className="mt-48 relative bg-white" style={{ backgroundImage: `url(${WorkingStepsBg})`, backgroundRepeat:"no-repeat" ,backgroundSize:"bg-cover"}}>
+    <section className="mt-32 relative bg-white" style={{ backgroundImage: `url(${WorkingStepsBg})`, backgroundRepeat:"no-repeat" ,backgroundSize:"cover"}}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <h3 className="bg-white text-orange-500 text-xl tracking-wider uppercase text-center">
+        <h3 className="bg-white pt-7 text-orange-500 text-xl tracking-wider uppercase text-center">
           - How It Work -
         </h3>
-        <h2 className="bg-white text-5xl font-bold text-center mb-12">
+        <h2 className="pb-10 bg-white text-5xl font-bold text-center mb-12">
            Following Working Steps 
         </h2>
         <div className=" py-10" >

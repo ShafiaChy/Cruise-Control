@@ -1,10 +1,11 @@
 // import { Navbar } from "../components/Navbar";
 
+import AboutServices from "../components/Homepage/AboutServices";
 import ContactSection from "../components/Homepage/ContactSection";
-import Featured from "../components/Homepage/Featured";
+import FAQSection from "../components/Homepage/FAQSection";
 import HeroSection from "../components/Homepage/HeroSection";
+import OurPopularCars from "../components/Homepage/OurPopularCars";
 import Testimonial from "../components/Homepage/Testimonial";
-import WhyChooseUs from "../components/Homepage/WhyChooseUs";
 import WorkingSteps from "../components/Homepage/WorkingSteps";
 
 export const Home = () => {
@@ -13,8 +14,9 @@ export const Home = () => {
       <HeroSection />
       <div className="lg:w-11/12 w-full mx-auto">
         <WorkingSteps></WorkingSteps>
-        <Featured />
-        <WhyChooseUs />
+        <AboutServices></AboutServices>
+        <OurPopularCars />
+        <FAQSection></FAQSection>
         <Testimonial />
         <ContactSection />
       </div>
