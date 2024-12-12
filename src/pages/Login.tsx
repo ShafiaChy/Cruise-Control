@@ -51,7 +51,7 @@ console.log('hi')
           toast.success("Logged in successfully!", {
             id: toastId,
             duration: 2000,
-            className: "text-custom-green",
+            className: "text-orange-600",
           });
           setTimeout(() => {
             navigate(`/${verifiedUser.role}/dashboard`);
@@ -87,7 +87,7 @@ console.log('hi')
         toast.success("Registration successful!", {
           id:toastId,
           duration: 2000,
-          className: "text-custom-green",
+          className: "text-orange-600",
         });
       
          

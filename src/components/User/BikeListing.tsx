@@ -86,7 +86,7 @@ const BikeListing = () => {
     <div className="w-full mx-auto py-0 mb-8 border bg-gray-200 text-gray-700 min-h-screen">
       <div className="flex py-12 px-4 md:flex-row flex-col">
         <div className="md:w-1/4 w-full pr-4 md:pb-0 pb-12">
-          <h2 className="text-3xl font-semibold mb-4 uppercase font-teko text-custom-green">
+          <h2 className="text-3xl font-semibold mb-4 uppercase font-teko text-orange-600">
             Filter By
           </h2>
 
@@ -156,7 +156,7 @@ const BikeListing = () => {
 
           <button
             onClick={clearFilters}
-            className="bg-custom-green text-white py-2 px-4 hover:bg-green-600 focus:outline-none transition duration-300 w-full rounded-none mt-8"
+            className="bg-orange-600 text-white py-2 px-4 hover:bg-green-600 focus:outline-none transition duration-300 w-full rounded-none mt-8"
           >
             Clear Filters
           </button>

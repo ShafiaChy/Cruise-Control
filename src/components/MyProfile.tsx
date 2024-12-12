@@ -55,7 +55,7 @@ const MyProfile = () => {
 
         toast.success("Profile updated successfully!", {
           duration: 2000,
-          className: "text-custom-green",
+          className: "text-orange-600",
         });
 
         setIsEditMode(false);
@@ -126,7 +126,7 @@ const MyProfile = () => {
         {/* Right Side */}
         <div className="w-full lg:w-3/5 md:p-8 px-4 py-12">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-xl font-semibold ms-6 text-custom-green">
+            <h3 className="text-xl font-semibold ms-6 text-orange-600">
               Profile Information
             </h3>
             <label className="inline-flex items-center ">
@@ -152,7 +152,7 @@ const MyProfile = () => {
                   <label
                     htmlFor="name"
                     className={`mb-1 block text-sm font-semibold ${
-                      isEditMode ? "text-custom-green" : "text-gray-50"
+                      isEditMode ? "text-orange-600" : "text-gray-50"
                     }`}
                   >
                     Full Name
@@ -183,7 +183,7 @@ const MyProfile = () => {
                   <label
                     htmlFor="phone"
                     className={`mb-1 block text-sm font-semibold ${
-                      isEditMode ? "text-custom-green" : "text-gray-50"
+                      isEditMode ? "text-orange-600" : "text-gray-50"
                     }`}
                   >
                     Phone Number
@@ -220,7 +220,7 @@ const MyProfile = () => {
                   <label
                     htmlFor="email"
                     className={`mb-1 block text-sm font-semibold ${
-                      isEditMode ? "text-custom-green" : "text-gray-50"
+                      isEditMode ? "text-orange-600" : "text-gray-50"
                     }`}
                   >
                     Email Address
@@ -256,7 +256,7 @@ const MyProfile = () => {
                 <div className="mb-5">
                   <label
                     className={`mb-1 block text-sm font-semibold ${
-                      isEditMode ? "text-custom-green" : "text-gray-50"
+                      isEditMode ? "text-orange-600" : "text-gray-50"
                     }`}
                   >
                     Address
@@ -293,7 +293,7 @@ const MyProfile = () => {
                 {/* Submit Button */}
                 {isEditMode && (
                   <div className="flex justify-center">
-                    <button className="w-2/3 rounded-none bg-custom-green py-2 px-8 text-center text-lg font-semibold text-white focus:outline-none hover:bg-green-600 hover:border-green-600">
+                    <button className="w-2/3 rounded-none bg-orange-600 py-2 px-8 text-center text-lg font-semibold text-white focus:outline-none hover:bg-green-600 hover:border-green-600">
                       Save Changes
                     </button>
                   </div>

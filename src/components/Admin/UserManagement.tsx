@@ -37,7 +37,7 @@ const UserManagement = () => {
         refetch();
         toast.success("User deleted successfully", {
           duration: 2000,
-          className: "text-custom-green",
+          className: "text-orange-600",
         });
       } catch (error) {
         console.error("Failed to delete user", error);
@@ -67,7 +67,7 @@ const UserManagement = () => {
       toast.success(`User role updated to ${newRole}`, {
         id: toastId,
         duration: 2000,
-        className: "text-custom-green",
+        className: "text-orange-600",
       });
     } catch (error) {
       toast.error("Failed to change user role", {
@@ -136,7 +136,7 @@ const UserManagement = () => {
         <div className="mt-3 overflow-hidden rounded-none shadow bg-gray-300">
           <div className="md:overflow-hidden overflow-x-auto scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-gray-200">
             <table className="min-w-full border-collapse border border-black/80 whitespace-nowrap">
-              <thead className="bg-green-600 text-white">
+              <thead className="bg-orange-600 text-white">
                 <tr>
                   <th className="py-2 text-sm font-medium text-gray-200 px-2 md:px-4 border-b border-gray-500 w-8">
                     #
@@ -186,7 +186,7 @@ const UserManagement = () => {
                     <td className="text-sm text-center w-28">
                       <span
                         className={`py-1 px-3 rounded-full text-white text-xs ${
-                          user.role === "admin" ? "bg-green-600" : "bg-gray-500"
+                          user.role === "admin" ? "bg-orange-600" : "bg-gray-500"
                         }`}
                       >
                         {user.role.charAt(0).toUpperCase() + user.role.slice(1)}

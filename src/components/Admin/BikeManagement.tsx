@@ -108,14 +108,14 @@ const BikeManagement = () => {
         toast.success("Bike updated successfully!", {
           id: toastId,
           duration: 2000,
-          className: "text-green-600",
+          className: "text-orange-600",
         });
       } else {
         await createBike(bikeData).unwrap();
         toast.success("Bike created successfully!", {
           id: toastId,
           duration: 2000,
-          className: "text-green-600",
+          className: "text-orange-600",
         });
       }
       refetch();
@@ -162,7 +162,7 @@ const BikeManagement = () => {
   });
 
   return (
-    <div className="mx-auto max-w-screen-lg bg-transparent">
+    <div className="mx-auto max-w-screen-lg  ">
       <div className="md:flex md:items-center md:justify-between flex-col md:flex-row">
         <p className="flex-1 text-base font-semibold text-gray-300">
           Number of available bikes: {filteredBikes.length}
@@ -172,7 +172,7 @@ const BikeManagement = () => {
           <div className="flex flex-col gap-4 md:flex-row items-stretch md:items-center md:justify-end md:mb-0 mb-6">
             <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
               <div className="flex md:flex-col flex-row items-center space-x-2 w-full md:w-auto">
-                <label className="w-1/3 md:w-auto text-sm font-medium text-custom-green">
+                <label className="w-1/3 md:w-auto text-sm font-medium text-orange-600">
                   Filter By Brand:
                 </label>
                 <select
@@ -193,7 +193,7 @@ const BikeManagement = () => {
               </div>
 
               <div className="flex md:flex-col flex-row items-center space-x-2 w-full md:w-auto">
-                <label className="w-1/3 md:w-auto text-sm font-medium text-custom-green">
+                <label className="w-1/3 md:w-auto text-sm font-medium text-orange-600">
                   Filter By Model:
                 </label>
                 <select
@@ -214,7 +214,7 @@ const BikeManagement = () => {
               </div>
 
               <div className="flex md:flex-col flex-row items-center space-x-2 w-full md:w-auto">
-                <label className="w-1/3 md:w-auto text-sm font-medium text-custom-green">
+                <label className="w-1/3 md:w-auto text-sm font-medium text-orange-600">
                   Filter By Availability:
                 </label>
                 <select
@@ -237,7 +237,7 @@ const BikeManagement = () => {
 
             <div className="flex flex-row justify-center gap-0 items-center">
               <div className="flex flex-col items-start">
-                <label className="mb-2 sm:mb-0 sm:mr-2 text-sm font-medium text-custom-green">
+                <label className="mb-2 sm:mb-0 sm:mr-2 text-sm font-medium text-orange-600">
                   Search:
                 </label>
                 <input
@@ -269,7 +269,7 @@ const BikeManagement = () => {
               <section className="flex justify-center items-center mt-5 ps-6">
                 <button
                   onClick={handleCreateBike}
-                  className="group flex justify-center py-0 px-2 rounded-none drop-shadow-xl bg-custom-green from-gray-800 to-black text-white text-xl focus:outline-none hover:translate-y-2 hover:rounded-[50%] transition-all duration-500 hover:from-[#331029] hover:to-[#310413]"
+                  className="group flex justify-center py-0 px-2 rounded-none drop-shadow-xl bg-orange-600 from-gray-800 to-black text-white text-xl focus:outline-none hover:translate-y-2 hover:rounded-[50%] transition-all duration-500 hover:from-[#331029] hover:to-[#310413]"
                 >
                   +
                   <span className="absolute opacity-0 group-hover:opacity-100 group-hover:text-gray-100 group-hover:text-sm w-20 group-hover:-translate-y-7 duration-500">
@@ -296,7 +296,7 @@ const BikeManagement = () => {
         <div className="mt-3 overflow-hidden rounded-none shadow bg-gray-300">
           <div className="md:overflow-hidden overflow-x-auto scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-gray-200">
             <table className="min-w-full border-collapse border border-black/80 whitespace-nowrap">
-              <thead className="bg-green-600 text-white">
+              <thead className="bg-orange-600 text-white">
                 <tr>
                   <th className="py-2 text-sm font-medium text-gray-200 px-2 md:px-4 border-b border-gray-500 w-8  ">
                     #
@@ -359,7 +359,7 @@ const BikeManagement = () => {
                     <td className="text-sm text-center text-gray-500 w-12">
                       {bike.isAvailable ? (
                         <FaCheckCircle
-                          className="text-green-600 w-4 h-4 mx-auto"
+                          className="text-orange-600 w-4 h-4 mx-auto"
                           aria-label="Available"
                         />
                       ) : (
@@ -372,7 +372,7 @@ const BikeManagement = () => {
                     <td className="text-sm text-center flex items-center justify-center gap-1 mx-4 text-gray-500 w-20 px-4 md:px-8 py-4">
                       <button
                         onClick={() => handleEdiTCar(bike)}
-                        className="text-green-600 bg-transparent border-none hover:text-green-800 focus:outline-none"
+                        className="text-orange-600 bg-transparent border-none hover:text-orange-800 focus:outline-none"
                       >
                         <FaEdit className="w-4 h-4" aria-label="Edit Bike" />
                       </button>

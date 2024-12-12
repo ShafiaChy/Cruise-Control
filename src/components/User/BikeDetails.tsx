@@ -26,13 +26,13 @@ const BikeDetails = () => {
 
   return (
     // <section className="w-11/12 mx-auto my-28">
-    <section className={`w-11/12 mx-auto ${isUser ? "mt-28 h-screen" : ""}`}>
-      <div className="m-4 mx-auto max-w-screen-lg text-white shadow-2xl">
+    <section className={` w-11/12 mx-auto ${isUser ? "mt-52 h-screen" : ""}`}> 
+      <div className="m-4 mx-auto max-w-screen-lg text-black shadow-2xl">
         <div className="relative flex h-full flex-col-reverse md:flex-row">
           <div className="relative p-8 md:w-4/6">
             <div className="flex flex-col md:flex-row">
               <h2 className="mb-2 text-4xl font-teko">{bike.name}</h2>
-              <span className="ml-4 text-sm uppercase text-custom-green">
+              <span className="ml-4 text-sm uppercase text-orange-600">
                 {bike.brand}
               </span>
             </div>
@@ -49,7 +49,7 @@ const BikeDetails = () => {
             <div className="mt-6">
               <p
                 className={`text-lg font-normal ${
-                  bike.isAvailable ? "text-custom-green" : "text-red-700"
+                  bike.isAvailable ? "text-orange-600" : "text-red-700"
                 }`}
               >
                 {bike.isAvailable ? "Available" : "Unavailable"}
@@ -57,11 +57,12 @@ const BikeDetails = () => {
             </div>
             <div className="mt-8 flex flex-col sm:flex-row">
               <button
+             
                 onClick={() => setShowPaymentModal(true)}
                 disabled={!bike.isAvailable}
                 className={`relative px-24 py-1 text-base rounded-none isolation-auto z-10 border overflow-hidden ${
                   bike.isAvailable
-                    ? "bg-white/90 text-gray-800 border-gray-900 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:bg-custom-green before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-500 focus:outline-none"
+                    ? "bg-white/90 text-gray-800 border-gray-900 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:bg-orange-600 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-500 focus:outline-none"
                     : "bg-gray-300 text-gray-500 border-gray-500 cursor-not-allowed"
                 }`}
               >

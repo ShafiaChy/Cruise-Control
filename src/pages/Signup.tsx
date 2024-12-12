@@ -41,7 +41,7 @@ const Signup = () => {
         toast.success("Registration successful!", {
           id: toastId,
           duration: 2000,
-          className: "text-custom-green",
+          className: "text-orange-600",
         });
         setTimeout(() => {
           navigate("/login");
@@ -77,7 +77,7 @@ const Signup = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="mb-6">
-            <h3 className="text-custom-green text-5xl text-center uppercase font-teko">
+            <h3 className="text-orange-600 text-5xl text-center uppercase font-teko">
               Sign Up
             </h3>
           </div>
@@ -85,14 +85,14 @@ const Signup = () => {
           {/* Name Field */}
           <div className="mt-4 flex flex-col">
             <div className="flex items-baseline max-md:flex-col max-md:items-start">
-              <label className="text-custom-green text-base mb-2 block w-1/6 text-left max-md:w-full">
+              <label className="text-orange-600 text-base mb-2 block w-1/6 text-left max-md:w-full">
                 Name
               </label>
               <div className="relative flex items-center w-5/6 max-md:w-full">
                 <input
                   {...register("name", { required: "Name is required" })}
                   type="text"
-                  className="w-full text-sm text-custom-green bg-gray-100  focus:bg-white px-4 py-2 rounded-none"
+                  className="w-full text-sm text-orange-600 bg-gray-100  focus:bg-white px-4 py-2 rounded-none"
                   placeholder="Full Name"
                 />
                 <FaUser className="absolute right-4 text-gray-400 w-4 h-4" />
@@ -111,7 +111,7 @@ const Signup = () => {
           {/* Email Field */}
           <div className="mt-4 flex flex-col">
             <div className="flex items-baseline max-md:flex-col max-md:items-start">
-              <label className="text-custom-green text-base mb-2 block w-1/6 text-left max-md:w-full">
+              <label className="text-orange-600 text-base mb-2 block w-1/6 text-left max-md:w-full">
                 Email
               </label>
               <div className="relative flex items-center w-5/6 max-md:w-full">
@@ -124,7 +124,7 @@ const Signup = () => {
                     },
                   })}
                   type="text"
-                  className="w-full text-sm text-custom-green bg-gray-100  focus:bg-white px-4 py-2 rounded-none"
+                  className="w-full text-sm text-orange-600 bg-gray-100  focus:bg-white px-4 py-2 rounded-none"
                   placeholder="Enter email"
                 />
                 <FaEnvelope className="absolute right-4 text-gray-400 w-4 h-4" />
@@ -142,7 +142,7 @@ const Signup = () => {
           {/* Password Field */}
           <div className="mt-4 flex flex-col">
             <div className="flex items-baseline max-md:flex-col max-md:items-start">
-              <label className="text-custom-green text-base mb-2 block w-1/6 text-left max-md:w-full">
+              <label className="text-orange-600 text-base mb-2 block w-1/6 text-left max-md:w-full">
                 Password
               </label>
               <div className="relative flex items-center w-5/6 max-md:w-full">
@@ -155,7 +155,7 @@ const Signup = () => {
                     },
                   })}
                   type={showPassword ? "text" : "password"}
-                  className="w-full text-sm text-custom-green bg-gray-100  focus:bg-white px-4 py-2 rounded-none"
+                  className="w-full text-sm text-orange-600 bg-gray-100  focus:bg-white px-4 py-2 rounded-none"
                   placeholder="Enter password"
                 />
                 {showPassword ? (
@@ -183,7 +183,7 @@ const Signup = () => {
           {/* Phone Field */}
           <div className="mt-4 flex flex-col">
             <div className="flex items-baseline max-md:flex-col max-md:items-start">
-              <label className="text-custom-green text-base mb-2 block w-1/6 text-left max-md:w-full">
+              <label className="text-orange-600 text-base mb-2 block w-1/6 text-left max-md:w-full">
                 Phone
               </label>
               <div className="relative flex items-center w-5/6 max-md:w-full">
@@ -192,7 +192,7 @@ const Signup = () => {
                     required: "Phone number is required",
                   })}
                   type="number"
-                  className="w-full text-sm text-custom-green bg-gray-100  focus:bg-white px-4 py-2 rounded-none"
+                  className="w-full text-sm text-orange-600 bg-gray-100  focus:bg-white px-4 py-2 rounded-none"
                   placeholder="Phone Number"
                 />
                 <FaPhone className="absolute right-4 bg-gray-50 text-gray-400 w-4 h-6" />
@@ -210,14 +210,14 @@ const Signup = () => {
           {/* Address Field */}
           <div className="mt-4 flex flex-col">
             <div className="flex items-baseline max-md:flex-col max-md:items-start">
-              <label className="text-custom-green text-base mb-2 block w-1/6 text-left max-md:w-full">
+              <label className="text-orange-600 text-base mb-2 block w-1/6 text-left max-md:w-full">
                 Address
               </label>
               <div className="relative flex items-center w-5/6 max-md:w-full">
                 <input
                   {...register("address", { required: "Address is required" })}
                   type="text"
-                  className="w-full text-sm text-custom-green bg-gray-100  focus:bg-white px-4 py-2 rounded-none"
+                  className="w-full text-sm text-orange-600 bg-gray-100  focus:bg-white px-4 py-2 rounded-none"
                   placeholder="Address"
                 />
                 <FaHome className="absolute right-4 text-gray-400 w-4 h-4" />
@@ -236,7 +236,7 @@ const Signup = () => {
           <div className="mt-12 flex">
             <button
               type="submit"
-              className="shadow-xl py-1 mx-auto px-6 w-1/2 text-lg tracking-wide font-semibold rounded-none text-white bg-custom-green hover:bg-green-700 focus:outline-none"
+              className="shadow-xl py-1 mx-auto px-6 w-1/2 text-lg tracking-wide font-semibold rounded-none text-white bg-orange-600 hover:bg-green-700 focus:outline-none"
             >
               Sign Up
             </button>

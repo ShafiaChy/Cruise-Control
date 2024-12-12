@@ -26,10 +26,10 @@ const SingleBike: React.FC<Props> = ({ bike }) => {
         </h2>
       </div>
       <div className="flex w-full flex-row items-start   space-x-1 py-1  border-b border-custom-green/60 ">
-        <span className="px-2 py-1 bg-custom-green text-white text-xs rounded-full">
+        <span className="px-2 py-1 bg-orange-600 text-white text-xs rounded-full">
           {bike.brand}
         </span>
-        <span className="px-2 py-1 bg-custom-green text-white text-xs rounded-full  ">
+        <span className="px-2 py-1 bg-orange-600 text-white text-xs rounded-full  ">
           {bike.model}
         </span>
       </div>
@@ -42,7 +42,7 @@ const SingleBike: React.FC<Props> = ({ bike }) => {
 
           <Link
             to={isUser ? `/bike-details/${bike._id}` : "/login"}
-            className="relative px-2 py-1 text-sm rounded-none bg-white isolation-auto z-10 border border-gray-900 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:bg-custom-green before:-z-10 before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-500"
+            className="relative px-2 py-1 text-sm rounded-none bg-white isolation-auto z-10 border border-gray-900 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:bg-orange-600 before:-z-10 before:aspect-square before:hover:scale-150 overflow-hidden before:hover:duration-500"
           >
             View Details
           </Link>

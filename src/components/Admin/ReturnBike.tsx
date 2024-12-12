@@ -30,7 +30,7 @@ const RentalManagement = () => {
       toast.success("Bike returned successfully!", {
         id: toastId,
         duration: 2000,
-        className: "text-custom-green",
+        className: "text-orange-600",
       });
       refetch();
     } catch (error) {
@@ -165,7 +165,7 @@ const RentalManagement = () => {
                       {!rental.isReturned && (
                         <button
                           onClick={() => handleReturnBike(rental._id)}
-                          className="text-custom-green bg-transparent border-none hover:text-green-600 focus:outline-none"
+                          className="text-orange-600 bg-transparent border-none hover:text-green-600 focus:outline-none"
                         >
                           Calculate
                         </button>

@@ -29,7 +29,7 @@ const MyRentalsPage = () => {
       <div className="flex justify-center mb-4 pb-0 border-b border-gray-700/60">
         <button
           className={`inline-flex items-center h-10 w-36 justify-center py-2 text-center  whitespace-nowrap sm:px-4 bg-transparent border-none  rounded-none focus:outline-none hover:shadow-xl hover:shadow-black/20 ${
-            activeTab === "Unpaid" ? "text-custom-green" : "text-gray-400"
+            activeTab === "Unpaid" ? "text-orange-600" : "text-gray-400"
           }`}
           onClick={() => handleTabClick("Unpaid")}
         >
@@ -39,7 +39,7 @@ const MyRentalsPage = () => {
 
         <button
           className={`inline-flex items-center h-10 w-36 justify-center py-2 text-center  whitespace-nowrap sm:px-4 bg-transparent border-none  rounded-none focus:outline-none hover:shadow-xl hover:shadow-black/20 ${
-            activeTab === "Paid" ? "text-custom-green" : "text-gray-400"
+            activeTab === "Paid" ? "text-orange-600" : "text-gray-400"
           }`}
           onClick={() => handleTabClick("Paid")}
         >
@@ -67,7 +67,7 @@ const MyRentalsPage = () => {
               }}
             ></div>
 
-            <div className="w-10/12 -mt-11 overflow-hidden bg-custom-green rounded-sm shadow-lg">
+            <div className="w-10/12 -mt-11 overflow-hidden bg-orange-600 rounded-sm shadow-lg">
               <h3 className="py-2 font-bold text-center text-gray-700 uppercase text-xl">
                 {rental.bikeId.name}
               </h3>
@@ -100,7 +100,7 @@ const MyRentalsPage = () => {
                         rentalId: rental._id,
                         isRemainderPayment: true,
                       }}
-                      className="px-2 py-1 text-sm rounded-none text-white uppercase transition-colors duration-300 transform bg-custom-green hover:bg-green-700 focus:outline-none"
+                      className="px-2 py-1 text-sm rounded-none text-white uppercase transition-colors duration-300 transform bg-orange-600 hover:bg-green-700 focus:outline-none"
                     >
                       Pay Now
                     </Link>
@@ -127,7 +127,7 @@ const MyRentalsPage = () => {
                             rentalId: rental._id,
                             isRemainderPayment: true,
                           }}
-                          className="px-2 py-1 text-sm rounded-none text-white uppercase transition-colors duration-300 transform bg-custom-green hover:bg-green-700 focus:outline-none"
+                          className="px-2 py-1 text-sm rounded-none text-white uppercase transition-colors duration-300 transform bg-orange-600 hover:bg-green-700 focus:outline-none"
                         >
                           Pay Now
                         </Link>
@@ -164,7 +164,7 @@ const MyRentalsPage = () => {
                               rentalId: rental._id,
                               isRemainderPayment: true,
                             }}
-                            className="px-2 py-1 text-sm rounded-none text-white uppercase transition-colors duration-300 transform bg-custom-green hover:bg-green-700 focus:outline-none"
+                            className="px-2 py-1 text-sm rounded-none text-white uppercase transition-colors duration-300 transform bg-orange-600 hover:bg-green-700 focus:outline-none"
                           >
                             Pay Now
                           </Link>

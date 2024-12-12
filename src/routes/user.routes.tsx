@@ -6,6 +6,7 @@ import MyRentalsPage from "../components/User/MyRentals";
 import ProtectedDashboardLayout from "../layouts/ProtectedDashboardLayout";
 import Dashboard from "../pages/Dashboard";
 import BikeListing from "../components/User/BikeListing";
+import Testimonial from "../components/User/Testimonial";
 
 export const userRoutes = {
   path: "/user",
@@ -22,6 +23,7 @@ export const userRoutes = {
         { path: "", element: <Navigate to="bike-listing" /> },
         { path: "profile", element: <MyProfile /> },
         { path: "bike-listing", element: <BikeListing /> },
+        { path: "reviews", element: <Testimonial /> },
         { path: "my-rentals", element: <MyRentalsPage /> },
         { path: "bike-details/:bikeId", element: <BikeDetails /> },
         { path: "payment", element: <Payment /> },

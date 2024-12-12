@@ -17,7 +17,7 @@ const PaymentSuccess = () => {
           <div className="py-10 text-center">
             <Link
               to="/"
-              className="px-12 bg-custom-green hover:bg-green-600 text-white font-semibold py-3 rounded-none focus:outline-none"
+              className="px-12 bg-orange-600 hover:bg-green-600 text-white font-semibold py-3 rounded-none focus:outline-none"
             >
               GO BACK
             </Link>

@@ -1,7 +1,7 @@
 const Team = () => {
   return (
     <div className="my-40 lg:max-w-5xl sm:max-w-2xl max-sm:max-w-sm mx-auto ">
-      <h2 className="text-center text-5xl font-medium font-teko text-custom-green">
+      <h2 className="text-center text-5xl font-medium font-teko text-orange-600">
         Our Team
       </h2>
 

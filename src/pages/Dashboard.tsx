@@ -18,6 +18,11 @@ const userMenuItems = [
     icon: <FaMotorcycle className="w-6 h-6" />,
   },
   {
+    name: "Testimonial",
+    path: "reviews",
+    icon: <FaMotorcycle className="w-6 h-6" />,
+  },
+  {
     name: "My Rentals",
     path: "my-rentals",
     icon: <FaCalendarCheck className="w-6 h-6" />,
@@ -51,7 +56,7 @@ const Dashboard = () => {
   return (
     <>
       <Navbar />
-      <section className="relative mt-24 max-w-screen bg-black/10 mx-4 md:mx-12">
+      <section className="relative mt-24 max-w-screen bg-zinc-900 my-20 mx-4 md:mx-12">
         <nav className="z-20 absolute top-0 left-0 right-0 flex flex-row md:flex-col w-full md:w-24 md:h-96 md:top-20 justify-around items-center gap-8 py-4 shadow-lg backdrop-blur-lg ps-2">
           {menuItems.map((item) => (
             <NavLink
@@ -60,8 +65,8 @@ const Dashboard = () => {
               className={({ isActive }) =>
                 `flex flex-col items-center justify-center gap-1 cursor-pointer ${
                   isActive
-                    ? "text-custom-green border-transparent"
-                    : "text-gray-400 hover:text-custom-green border-transparent"
+                    ? "text-orange-600 border-transparent"
+                    : "text-gray-400 hover:text-orange-600 border-transparent"
                 } border-b-2`
               }
             >

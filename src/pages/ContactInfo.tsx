@@ -2,7 +2,7 @@ const ContactInfo = () => {
   return (
     <div>
       <section className="my-40 lg:w-11/12 w-full mx-auto">
-        <h2 className="text-center text-5xl font-medium font-teko text-custom-green mb-16">
+        <h2 className="text-center text-5xl font-medium font-teko text-orange-600 mb-16">
           Our Contact Information
         </h2>
         <div
@@ -25,11 +25,11 @@ const ContactInfo = () => {
                   <div className="relative mb-6">
                     <input
                       type="text"
-                      className="peer block w-full border-b border-gray-500 bg-transparent py-2 px-3 leading-6 outline-none transition-all duration-200 ease-linear focus:placeholder-opacity-100 focus:text-custom-green"
+                      className="peer block w-full border-b border-gray-500 bg-transparent py-2 px-3 leading-6 outline-none transition-all duration-200 ease-linear focus:placeholder-opacity-100 focus:text-orange-600"
                       id="name"
                     />
                     <label
-                      className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-0 truncate pt-1.5 leading-6 text-gray-600 transition-all duration-200 ease-out peer-focus:-translate-y-3 peer-focus:scale-75 peer-focus:text-custom-green"
+                      className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-0 truncate pt-1.5 leading-6 text-gray-600 transition-all duration-200 ease-out peer-focus:-translate-y-3 peer-focus:scale-75 peer-focus:text-orange-600"
                       htmlFor="name"
                     >
                       Name
@@ -38,11 +38,11 @@ const ContactInfo = () => {
                   <div className="relative mb-6">
                     <input
                       type="email"
-                      className="peer block w-full border-b border-gray-500 bg-transparent py-2 px-3 leading-6 outline-none transition-all duration-200 ease-linear focus:placeholder-opacity-100 focus:text-custom-green"
+                      className="peer block w-full border-b border-gray-500 bg-transparent py-2 px-3 leading-6 outline-none transition-all duration-200 ease-linear focus:placeholder-opacity-100 focus:text-orange-600"
                       id="email"
                     />
                     <label
-                      className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-0 truncate pt-1.5 leading-6 text-gray-600 transition-all duration-200 ease-out peer-focus:-translate-y-3 peer-focus:scale-75 peer-focus:text-custom-green"
+                      className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-0 truncate pt-1.5 leading-6 text-gray-600 transition-all duration-200 ease-out peer-focus:-translate-y-3 peer-focus:scale-75 peer-focus:text-orange-600"
                       htmlFor="email"
                     >
                       Email address
@@ -50,13 +50,13 @@ const ContactInfo = () => {
                   </div>
                   <div className="relative mb-6">
                     <textarea
-                      className="peer block w-full border-b border-gray-500 bg-transparent py-2 px-3 leading-6 outline-none transition-all duration-200 ease-linear focus:placeholder-opacity-100 focus:text-custom-green"
+                      className="peer block w-full border-b border-gray-500 bg-transparent py-2 px-3 leading-6 outline-none transition-all duration-200 ease-linear focus:placeholder-opacity-100 focus:text-orange-600"
                       id="message"
                       rows={3}
                     ></textarea>
                     <label
                       htmlFor="message"
-                      className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-0 truncate pt-1.5 leading-6 text-gray-600 transition-all duration-200 ease-out peer-focus:-translate-y-3 peer-focus:scale-75 peer-focus:text-custom-green"
+                      className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-0 truncate pt-1.5 leading-6 text-gray-600 transition-all duration-200 ease-out peer-focus:-translate-y-3 peer-focus:scale-75 peer-focus:text-orange-600"
                     >
                       Message
                     </label>
@@ -64,7 +64,7 @@ const ContactInfo = () => {
 
                   <button
                     type="button"
-                    className="mb-6 w-full rounded-none  bg-custom-green text-white px-6 pt-2.5 pb-2 text-lg font-medium uppercase leading-normal hover:bg-green-600 transition duration-300 lg:mb-0"
+                    className="mb-6 w-full rounded-none  bg-orange-600 text-white px-6 pt-2.5 pb-2 text-lg font-medium uppercase leading-normal hover:bg-green-600 transition duration-300 lg:mb-0"
                   >
                     Send
                   </button>
@@ -75,7 +75,7 @@ const ContactInfo = () => {
                   <div className="mb-12 w-full md:w-6/12 lg:w-full xl:w-6/12 px-3 lg:px-6">
                     <div className="flex items-start">
                       <div className="shrink-0">
-                        <div className="inline-block  -md bg-transparent p-4 text-custom-green">
+                        <div className="inline-block  -md bg-transparent p-4 text-orange-600">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -104,7 +104,7 @@ const ContactInfo = () => {
                   <div className="mb-12 w-full md:w-6/12 lg:w-full xl:w-6/12 px-3 lg:px-6">
                     <div className="flex items-start">
                       <div className="shrink-0">
-                        <div className="inline-block  -md bg-transparent p-4 text-custom-green">
+                        <div className="inline-block  -md bg-transparent p-4 text-orange-600">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -133,7 +133,7 @@ const ContactInfo = () => {
                   <div className="mb-12 w-full md:w-6/12 lg:w-full xl:w-6/12 px-3 lg:px-6">
                     <div className="flex items-start">
                       <div className="shrink-0">
-                        <div className="inline-block  -md bg-transparent p-4 text-custom-green">
+                        <div className="inline-block  -md bg-transparent p-4 text-orange-600">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -159,7 +159,7 @@ const ContactInfo = () => {
                   <div className="w-full md:w-6/12 lg:w-full xl:mb-12 xl:w-6/12 px-3 lg:px-6">
                     <div className="flex items-start">
                       <div className="shrink-0">
-                        <div className="inline-block  -md bg-transparent p-4 text-custom-green">
+                        <div className="inline-block  -md bg-transparent p-4 text-orange-600">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"

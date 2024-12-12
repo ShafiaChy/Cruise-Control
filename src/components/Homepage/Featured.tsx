@@ -22,7 +22,7 @@ const BikeGrid = () => {
   return (
     <div className="bg-transparent mt-24 mx-auto">
       <div className="mx-auto px-0 py-8">
-        <h1 className="text-7xl text-custom-green font-medium font-teko text-center my-12">
+        <h1 className="text-7xl text-orange-600 font-medium font-teko text-center my-12">
           Our Featured Bikes
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
@@ -43,10 +43,10 @@ const BikeGrid = () => {
 
                   <Link
                     to={isUser ? `/bike-details/${bike._id}` : "/login"}
-                    className="relative inline-block px-4 py-2 mt-4 text-sm font-semibold text-white transition-all duration-500 border border-custom-green rounded-none group-hover:bg-custom-green group-hover:text-white focus:outline-none"
+                    className="relative inline-block px-4 py-2 mt-4 text-sm font-semibold text-white transition-all duration-500 border border-custom-green rounded-none group-hover:bg-orange-600 group-hover:text-white focus:outline-none"
                   >
                     View Detail
-                    <span className="absolute inset-0 transition-all duration-500 bg-custom-green transform scale-x-0 group-hover:scale-x-100 origin-left z-[-1]"></span>
+                    <span className="absolute inset-0 transition-all duration-500 bg-orange-600 transform scale-x-0 group-hover:scale-x-100 origin-left z-[-1]"></span>
                   </Link>
                 </div>
               </div>

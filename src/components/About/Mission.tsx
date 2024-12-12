@@ -14,7 +14,7 @@ const Mission = () => {
               />
             </div>
             <div className="md:7/12 lg:w-6/12">
-              <h2 className="text-2xl text-custom-green font-medium font-teko md:text-4xl">
+              <h2 className="text-2xl text-orange-600 font-medium font-teko md:text-4xl">
                 RideOn Rental Service
               </h2>
               <p className="mt-6 text-gray-300">
@@ -41,7 +41,7 @@ const Mission = () => {
       <section className="mt-40 bg-transparent py-10 text-white/80">
         <div className="container mx-auto w-full max-w-screen-xl">
           <div className="w-full">
-            <h2 className="text-center text-5xl font-medium font-teko text-custom-green">
+            <h2 className="text-center text-5xl font-medium font-teko text-orange-600">
               Our Mission
             </h2>
             <p className="mx-auto mb-4 max-w-xl py-2 text-center text-gray-400 sm:text-lg">
@@ -52,7 +52,7 @@ const Mission = () => {
           </div>
           <div className="flex flex-col lg:flex-row">
             <div className="w-full p-4 text-left lg:w-1/3">
-              <hr className="mb-4 h-1.5 w-1/3 bg-custom-green border-custom-green" />
+              <hr className="mb-4 h-1.5 w-1/3 bg-orange-600 border-custom-green" />
               <h3 className="font-teko text-4xl font-light leading-10">
                 INNOVATE.
               </h3>
@@ -64,7 +64,7 @@ const Mission = () => {
               </p>
             </div>
             <div className="w-full p-4 text-left lg:w-1/3">
-              <hr className="mb-4 h-1.5 w-1/3 bg-custom-green border-custom-green" />
+              <hr className="mb-4 h-1.5 w-1/3 bg-orange-600 border-custom-green" />
               <h3 className="font-teko text-4xl font-light leading-10">
                 GROW.
               </h3>
@@ -75,7 +75,7 @@ const Mission = () => {
               </p>
             </div>
             <div className="w-full p-4 text-left lg:w-1/3">
-              <hr className="mb-4 h-1.5 w-1/3 bg-custom-green border-custom-green" />
+              <hr className="mb-4 h-1.5 w-1/3 bg-orange-600 border-custom-green" />
               <h3 className="font-teko text-4xl font-light leading-10">
                 SERVE.
               </h3>

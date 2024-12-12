@@ -405,7 +405,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
               </button>
               <button
                 type="submit"
-                className="focus:outline-none py-1 bg-custom-green px-3 ml-3 rounded-none text-white hover:bg-green-600"
+                className="focus:outline-none py-1 bg-orange-600 px-3 ml-3 rounded-none text-white hover:bg-green-600"
               >
                 {bike ? "Update Bike" : "Add Bike"}
               </button>
@@ -672,7 +672,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
               </button>
               <button
                 type="submit"
-                className="focus:outline-none py-1 bg-custom-green px-3 ml-3 rounded-none text-white hover:bg-green-600"
+                className="focus:outline-none py-1 bg-orange-600 px-3 ml-3 rounded-none text-white hover:bg-green-600"
               >
                 {bike ? "Update Bike" : "Add Bike"}
               </button>

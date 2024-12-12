@@ -60,7 +60,7 @@ const PaymentModal = ({ isOpen, setIsOpen, bikeId }: PaymentModalProps) => {
             animate={{ scale: 1, rotate: "0deg" }}
             exit={{ scale: 0, rotate: "0deg" }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-gradient-to-br from-green-600 to-green-700 text-white p-6 rounded-lg w-full max-w-lg shadow-xl cursor-default relative overflow-hidden"
+            className="bg-gradient-to-br from-orange-600 to-orange-700 text-white p-6 rounded-lg w-full max-w-lg shadow-xl cursor-default relative overflow-hidden"
           >
             <h3 className="text-4xl font-medium font-teko text-center mb-6">
               Book Your Ride
@@ -75,7 +75,7 @@ const PaymentModal = ({ isOpen, setIsOpen, bikeId }: PaymentModalProps) => {
                     startTime ? formatDateTimeForInput(new Date(startTime)) : ""
                   }
                   onChange={handleDateTimeChange}
-                  className="w-full p-2 border-none focus:outline-none rounded-none text-gray-800  bg-green-50/50"
+                  className="w-full p-2 border-none focus:outline-none rounded-none text-gray-800  bg-orange-50/50"
                 />
               </div>
               <div className="flex gap-2">
@@ -87,7 +87,7 @@ const PaymentModal = ({ isOpen, setIsOpen, bikeId }: PaymentModalProps) => {
                 </button>
                 <button
                   onClick={handleProceedToPayment}
-                  className="bg-white hover:opacity-90 transition-opacity text-custom-green font-semibold w-full py-2  rounded-none hover:outline-none"
+                  className="bg-white hover:opacity-90 transition-opacity text-orange-600 font-semibold w-full py-2  rounded-none hover:outline-none"
                   disabled={!startTime}
                 >
                   Proceed to Payment

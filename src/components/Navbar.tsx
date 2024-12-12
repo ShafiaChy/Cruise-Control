@@ -18,11 +18,24 @@ import Tooltip from "../utils/tootip";
 import Logo from '../assets/car-logo.png'
 
 export const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isVisited, setIsVisited] = useState<boolean>(false);
+  const [isSubmenuOpen, setIsSubmenuOpen] = useState<boolean>(false);
+  const [isLogin, setIsLogin] = useState<boolean>(false);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const isUser = useAppSelector(useCurrentUser);
+console.log(isUser)
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname == '/' ||  location?.pathname == '/login') {
+      setIsVisited(true);
+    }
+    if(location?.pathname == '/login'){
+      setIsLogin(true)
+    }
+  }, [location?.pathname, isUser?.role]);
 
   const toggleSubmenu = () => {
     setIsSubmenuOpen(!isSubmenuOpen);
@@ -55,7 +68,7 @@ export const Navbar = () => {
     };
   }, []);
 
-  const location = useLocation();
+
   const isAboutActive =
     location.pathname.startsWith("/about/who-are-we") ||
     location.pathname.startsWith("/about/history");
@@ -63,7 +76,7 @@ export const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 pt-4 ${
-        scrolled ? "bg-gray-900 shadow-lg" : "bg-transparent"
+        scrolled || !isVisited? "bg-gray-900 shadow-lg" : "bg-transparent"
       }`}
     >
       {/* <nav className="fixed top-0 left-0 right-0 z-50  pt-4 pb-0 bg-transparent "> */}
@@ -100,7 +113,7 @@ export const Navbar = () => {
                   }
                 >
                   ABOUT
-                  <span className="absolute left-1/2 -top-5 w-0 h-1 bg-custom-green group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+                  <span className="absolute left-1/2 -top-5 w-0 h-1 bg-orange-600 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
                   <FaChevronDown className="ml-2 w-3 h-3" />
                 </NavLink>
                 <ul className="absolute z-50 left-0 top-full mt-2 w-40 bg-gray-800 text-white opacity-0 group-hover:opacity-100 transform scale-y-0 group-hover:scale-y-100 origin-top transition-all duration-300 ease-in-out">
@@ -182,6 +195,7 @@ export const Navbar = () => {
                         ? "text-orange-500"
                         : ""
                     }
+                   
                   >
                     DASHBOARD
                   </NavLink>
@@ -232,7 +246,11 @@ export const Navbar = () => {
                   exit={{ opacity: 0, y: 20 }}
                   className="flex items-end  "
                 >
-                  <button className="hover:border-orange-700 border-2 rounded-md bg-orange-500 py-3"><FlipLink  href="/login">login</FlipLink></button>
+                  {
+                    !isLogin && <button className="hover:border-orange-700 border-2 rounded-md bg-orange-500 py-3"><FlipLink  href="/login">login</FlipLink></button>
+
+    
+                  }
                
                 </motion.div>
               )}
@@ -432,6 +450,7 @@ export const Navbar = () => {
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "text-orange-500" : ""
                 }
+           
               >
                 DASHBOARD
               </NavLink>

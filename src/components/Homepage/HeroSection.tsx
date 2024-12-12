@@ -65,7 +65,7 @@ const HeroSection = () => {
     //             </select>
     //             <button
     //               type="submit"
-    //               className="bg-custom-green text-white text-base rounded-none px-4 py-2 border border-custom-green"
+    //               className="bg-orange-600 text-white text-base rounded-none px-4 py-2 border border-custom-green"
     //             >
     //               Search
     //             </button>

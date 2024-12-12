@@ -25,6 +25,7 @@ export const bikesApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["Bikes"],
     }),
+    
 
     updateBike: builder.mutation({
       query: ({ id, ...bike }) => ({

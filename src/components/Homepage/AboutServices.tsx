@@ -41,14 +41,21 @@ const AboutServices = () => {
           {/* Right Content */}
           <div className="relative ">
             <img src={About} alt="Car" className="rounded-custom w-full h-auto"/>
-            <div className="absolute inset-0 flex items-center justify-center">
-                <a href="https://youtu.be/1LxcTt1adfY" className="button-container flex items-center justify-center w-16 h-16 bg-transparent rounded-full text-white hover:bg-orange-500">
-                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" className="play-button glow-button">
-                <circle cx="32" cy="32" r="31" fill="none" stroke="#f97316" stroke-width="2" opacity="0.9" />
-                <polygon points="25,20 25,44 45,32" fill="#1C00ff00" stroke="#fff" stroke-width="2"  opacity="0.9" />
-                </svg>
-                </a>
-            </div>
+            <div className="absolute top-56 left-56 flex items-center justify-center">
+            {/* Ripple Effect */}
+            <div className="absolute w-24 h-24 rounded-full border-2 border-orange-500 opacity-75 animate-ripple"></div>
+            <div className="absolute w-24 h-24 rounded-full border-2 border-orange-500 opacity-50 animate-ripple delay-1s"></div>
+            <div className="absolute w-24 h-24 rounded-full border-2 border-orange-500 opacity-25 animate-ripple delay-2s"></div>
+
+            {/* Button */}
+            <button
+              
+              className="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center text-2xl shadow-lg hover:bg-orange-600 relative z-10"
+              aria-label="Play Video"
+            >
+              ▶
+            </button>
+          </div>
             </div>
         </div>
       </section>

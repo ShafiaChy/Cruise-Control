@@ -2,6 +2,7 @@
 
 import AboutServices from "../components/Homepage/AboutServices";
 import ContactSection from "../components/Homepage/ContactSection";
+import Demo from "../components/Homepage/Demo";
 import FAQSection from "../components/Homepage/FAQSection";
 import HeroSection from "../components/Homepage/HeroSection";
 import OurPopularCars from "../components/Homepage/OurPopularCars";
@@ -16,6 +17,7 @@ export const Home = () => {
         <WorkingSteps></WorkingSteps>
         <AboutServices></AboutServices>
         <OurPopularCars />
+        <Demo></Demo>
         <FAQSection></FAQSection>
         <Testimonial />
         <ContactSection />
