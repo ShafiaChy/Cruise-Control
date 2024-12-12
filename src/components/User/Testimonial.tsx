@@ -22,7 +22,7 @@ const Testimonial = () => {
         name: "",
         userId:"",
         designation: "",
-        picture: null, // Initialize as null
+        picture: "", // Initialize as null
         review: "",
         rating: 0,
       });

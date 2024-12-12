@@ -63,13 +63,13 @@ const MyRentalsPage = () => {
             <div
               className="w-full bg-gray-300 bg-center bg-cover rounded-none shadow-md h-48"
               style={{
-                backgroundImage: `url(${rental?.bikeId?.image})`,
+                backgroundImage: `url(${rental?.carId?.image})`,
               }}
             ></div>
 
             <div className="w-10/12 -mt-11 overflow-hidden bg-orange-600 rounded-sm shadow-lg">
               <h3 className="py-2 font-bold text-center text-gray-700 uppercase text-xl">
-                {rental.bikeId.name}
+                {rental.carId.name}
               </h3>
 
               <div className="flex flex-col justify-between px-3 py-2 bg-gray-100 text-gray-800 rounded-none">
@@ -96,7 +96,7 @@ const MyRentalsPage = () => {
                       to="../payment"
                       state={{
                         amount: rental.totalCost - 100,
-                        bikeId: rental.bikeId._id,
+                        carId: rental.carId._id,
                         rentalId: rental._id,
                         isRemainderPayment: true,
                       }}
@@ -123,7 +123,7 @@ const MyRentalsPage = () => {
                           to="../payment"
                           state={{
                             amount: rental.totalCost - 100,
-                            bikeId: rental.bikeId._id,
+                            carId: rental.carId._id,
                             rentalId: rental._id,
                             isRemainderPayment: true,
                           }}
@@ -160,7 +160,7 @@ const MyRentalsPage = () => {
                             to="../payment"
                             state={{
                               amount: rental.totalCost - 100,
-                              bikeId: rental.bikeId._id,
+                              carId: rental.carId._id,
                               rentalId: rental._id,
                               isRemainderPayment: true,
                             }}

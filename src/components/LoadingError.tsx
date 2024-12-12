@@ -7,7 +7,7 @@ const LoadingError = () => {
       >
         <strong className="font-bold">Error: </strong>
         <span className="block sm:inline">
-          There was an error loading the bikes. Please try again later.
+          There was an error loading the Cars. Please try again later.
         </span>
       </div>
     </div>

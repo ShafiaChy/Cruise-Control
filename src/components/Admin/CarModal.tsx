@@ -6,20 +6,20 @@ import { TCar } from "../../types/car";
 import { useEffect, useState } from "react";
 import { GiCheckMark } from "react-icons/gi";
 
-type BikeModalProps = {
-  bike?: TCar;
+type CarModalProps = {
+  Car?: TCar;
   onSubmit: (data: Omit<TCar, "_id">) => void;
   onClose: () => void;
 };
 
-const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
+const CarModal: React.FC<CarModalProps> = ({ Car, onSubmit, onClose }) => {
   const {
     register,
     handleSubmit,
     setValue,
     formState: { errors },
   } = useForm<TCar>({
-    defaultValues: bike || {
+    defaultValues: Car || {
       name: "",
       model: "",
       pricePerHour: 0,
@@ -44,14 +44,14 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
     setImage(e.target.files ? e.target.files[0] : null);
   };
 
-  // Populate form fields when editing a bike
+  // Populate form fields when editing a Car
   useEffect(() => {
-    if (bike) {
-      Object.keys(bike).forEach((key) => {
-        setValue(key as keyof TCar, (bike as any)[key]);
+    if (Car) {
+      Object.keys(Car).forEach((key) => {
+        setValue(key as keyof TCar, (Car as any)[key]);
       });
     }
-  }, [bike, setValue]);
+  }, [Car, setValue]);
 
   const uploadImageToCloudinary = async (image: File) => {
     const formData = new FormData();
@@ -73,7 +73,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
 
   const handleFormSubmit = async (data: Omit<TCar, "_id">) => {
     try {
-      let imageUrl = bike?.image;
+      let imageUrl = Car?.image;
 
       if (image) {
         imageUrl = await uploadImageToCloudinary(image);
@@ -115,7 +115,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
           />
 
           <h1 className="text-xl font-semibold tracking-wide my-4 text-center">
-            {bike ? "Edit Bike Info" : "Add New Bike"}
+            {Car ? "Edit Car Info" : "Add New Car"}
           </h1>
 
           <form
@@ -147,7 +147,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
               <div className="flex flex-col md:flex-row   gap-4 md:gap-0">
                 <div
                   className={`flex flex-row items-center ${
-                    bike ? "md:w-1/2 w-full" : "md:w-full"
+                    Car ? "md:w-1/2 w-full" : "md:w-full"
                   }  `}
                 >
                   <label className="text-gray-700 font-semibold text-base md:w-20 w-1/2">
@@ -169,7 +169,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
                   </label>
                 </div>
 
-                {bike && (
+                {Car && (
                   <div className="flex flex-row items-center md:ml-4">
                     <label className="text-gray-700 font-semibold text-base md:w-24 w-1/2">
                       Change Image
@@ -262,10 +262,10 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
               </div>
 
               <div className="flex flex-col md:flex-row items-center w-full md:w-1/3 mt-6 md:mt-0 md:py-4">
-                {!isChangingImage && bike?.image ? (
+                {!isChangingImage && Car?.image ? (
                   <img
-                    src={bike.image}
-                    alt={bike.name}
+                    src={Car.image}
+                    alt={Car.name}
                     className="w-full h-24 md:h-32 object-cover border border-gray-300"
                   />
                 ) : (
@@ -407,7 +407,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
                 type="submit"
                 className="focus:outline-none py-1 bg-orange-600 px-3 ml-3 rounded-none text-white hover:bg-green-600"
               >
-                {bike ? "Update Bike" : "Add Bike"}
+                {Car ? "Update Car" : "Add Car"}
               </button>
             </div>
           </form>
@@ -441,7 +441,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
               <div className="flex flex-col md:flex-row gap-4 md:gap-0">
                 <div
                   className={`flex flex-row items-center ${
-                    bike ? "md:w-1/2 w-full" : "md:w-full"
+                    Car ? "md:w-1/2 w-full" : "md:w-full"
                   }`}
                 >
                   <label className="text-gray-700 font-semibold text-base md:w-20 w-1/2">
@@ -461,7 +461,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
                   </label>
                 </div>
 
-                {bike && (
+                {Car && (
                   <div className="flex flex-row items-center md:ml-4">
                     <label className="text-gray-700 font-semibold text-base md:w-24 w-1/2">
                       Change Image
@@ -554,10 +554,10 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
               </div>
 
               <div className="flex flex-col md:flex-row items-center w-full md:w-1/3 mt-6 md:mt-0 md:py-4">
-                {!isChangingImage && bike?.image ? (
+                {!isChangingImage && Car?.image ? (
                   <img
-                    src={bike.image}
-                    alt={bike.name}
+                    src={Car.image}
+                    alt={Car.name}
                     className="w-full h-24 md:h-32 object-cover border border-gray-300"
                   />
                 ) : (
@@ -674,7 +674,7 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
                 type="submit"
                 className="focus:outline-none py-1 bg-orange-600 px-3 ml-3 rounded-none text-white hover:bg-green-600"
               >
-                {bike ? "Update Bike" : "Add Bike"}
+                {Car ? "Update Car" : "Add Car"}
               </button>
             </div>
           </form> */}
@@ -684,4 +684,4 @@ const BikeModal: React.FC<BikeModalProps> = ({ bike, onSubmit, onClose }) => {
   );
 };
 
-export default BikeModal;
+export default CarModal;

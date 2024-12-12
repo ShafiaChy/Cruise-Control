@@ -10,24 +10,24 @@ const Payment = () => {
   const { state } = location;
 
   // const amount = state?.amount;
-  // const bikeId = state?.bikeId || "";
+  // const carId = state?.carId || "";
   // const startTime = state?.startTime || "";
   console.log("Payment Page State:", state);
 
   // Extract details from state
   const isRemainderPayment = state?.isRemainderPayment || false;
   const amount = parseInt(state?.amount, 10);
-  const bikeId = state?.bikeId || "";
+  const carId = state?.carId || "";
   const rentalId = state?.rentalId || "";
   const startTime = state?.startTime || "";
 
   return (
     <Elements stripe={stripePromise}>
-      {/* <CheckoutForm amount={amount} bikeId={bikeId} startTime={startTime} /> */}
+      {/* <CheckoutForm amount={amount} carId={carId} startTime={startTime} /> */}
       {isRemainderPayment ? (
-        <CheckoutForm amount={amount} bikeId={bikeId} rentalId={rentalId} />
+        <CheckoutForm amount={amount} carId={carId} rentalId={rentalId} />
       ) : (
-        <CheckoutForm amount={amount} bikeId={bikeId} startTime={startTime} />
+        <CheckoutForm amount={amount} carId={carId} startTime={startTime} />
       )}
     </Elements>
   );

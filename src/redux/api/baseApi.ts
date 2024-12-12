@@ -4,7 +4,7 @@ import { RootState } from "../store";
 const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: fetchBaseQuery({
-    // baseUrl: "https://bike-rental-service-serverside.vercel.app/api",
+    // baseUrl: "https://Car-rental-service-serverside.vercel.app/api",
     baseUrl: "http://localhost:5000/api",
     credentials: "include",
     prepareHeaders: (headers, { getState }) => {
@@ -17,7 +17,7 @@ const baseApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ["User", "Bikes", "Rental", "Reviews"],
+  tagTypes: ["User", "Cars", "Rental", "Reviews"],
   endpoints: () => ({}),
 });
 export default baseApi;

@@ -1,41 +1,41 @@
 import { ChangeEvent, useState } from "react";
 import {
   useGetAllRentalsQuery,
-  useReturnBikeMutation,
+  useReturnCarMutation,
 } from "../../redux/features/rentals/rentalApi";
 import { toast } from "sonner";
 import Spinner from "../Spinner";
 import LoadingError from "../LoadingError";
 import { TAdminRental } from "../../types/myRental";
 
-const RentalManagement = () => {
+const RentalCar = () => {
   const {
     data: rentalsResponse,
     error,
     isLoading,
     refetch,
   } = useGetAllRentalsQuery(undefined);
-  const [returnBike] = useReturnBikeMutation();
+  const [returnCar] = useReturnCarMutation();
 
   const rentals = rentalsResponse?.data || [];
   const [search, setSearch] = useState("");
   console.log(rentals);
 
-  const handleReturnBike = async (rentalId: string) => {
+  const handleReturnCar = async (rentalId: string) => {
     // const returnTime = new Date();
     const toastId = toast.loading("Processing return...");
     try {
-      // await returnBike({ rentalId, returnTime }).unwrap();
-      await returnBike(rentalId).unwrap();
-      toast.success("Bike returned successfully!", {
+      // await returnCar({ rentalId, returnTime }).unwrap();
+      await returnCar(rentalId).unwrap();
+      toast.success("Car returned successfully!", {
         id: toastId,
         duration: 2000,
         className: "text-orange-600",
       });
       refetch();
     } catch (error) {
-      console.error("Failed to return bike:", error);
-      toast.error("Failed to return bike", {
+      console.error("Failed to return Car:", error);
+      toast.error("Failed to return Car", {
         id: toastId,
         duration: 2000,
         className: "text-red-700",
@@ -49,7 +49,7 @@ const RentalManagement = () => {
 
   const filteredRentals = rentals.filter(
     (rental: TAdminRental) =>
-      rental.bikeId?.name.toLowerCase().includes(search.toLowerCase()) ||
+      rental.carId?.name.toLowerCase().includes(search.toLowerCase()) ||
       rental._id.toString().toLowerCase().includes(search.toLowerCase())
   );
 
@@ -66,7 +66,7 @@ const RentalManagement = () => {
             </label>
             <input
               type="text"
-              placeholder="Search by Rental ID or Bike Name"
+              placeholder="Search by Rental ID or Car Name"
               value={search}
               onChange={handleSearchChange}
               className="block w-full rounded-none border-transparent bg-gray-100 text-gray-800 p-1 pr-10 text-base outline-none focus:shadow sm:text-sm hover:bg-gray-200 focus:bg-gray-200 transition-colors duration-200"
@@ -98,7 +98,7 @@ const RentalManagement = () => {
                     Rental ID
                   </th>
                   <th className="py-2 text-sm font-medium text-gray-200 px-4 md:px-6 border-b border-gray-500">
-                    Bike Name
+                    Car Name
                   </th>
                   <th className="py-2 text-sm font-medium text-gray-200 px-4 md:px-6 border-b border-gray-500">
                     Start Time
@@ -128,7 +128,7 @@ const RentalManagement = () => {
                       {rental?._id.toString()}{" "}
                     </td>
                     <td className="text-xs tracking-tight text-gray-900 px-4 md:px-6">
-                      {rental.bikeId?.name}
+                      {rental.carId?.name}
                     </td>
                     <td className="text-xs tracking-tight text-gray-900 px-4 md:px-6">
                       {new Date(rental.startTime).toLocaleString()}
@@ -164,7 +164,7 @@ const RentalManagement = () => {
                     <td className="text-sm text-center mx-2 text-gray-500 w-20 px-2 md:px-2 py-2">
                       {!rental.isReturned && (
                         <button
-                          onClick={() => handleReturnBike(rental._id)}
+                          onClick={() => handleReturnCar(rental._id)}
                           className="text-orange-600 bg-transparent border-none hover:text-green-600 focus:outline-none"
                         >
                           Calculate
@@ -182,4 +182,4 @@ const RentalManagement = () => {
   );
 };
 
-export default RentalManagement;
+export default RentalCar;

@@ -17,12 +17,12 @@ const HeroSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    navigate(`/bike-listing?filterBy=${filterBy}&searchTerm=${searchTerm}`);
+    navigate(`/Car-listing?filterBy=${filterBy}&searchTerm=${searchTerm}`);
   };
 
   const [selectedVehicle, setSelectedVehicle] = useState("Car");
 
-  const vehicles = ["Car", "Van", "Minibus", "Coupe", "Bike"];
+  const vehicles = ["Car", "Van", "Minibus", "Coupe", "Car"];
   return (
     // <div className="relative w-full h-[100vh] bg-gradient text-white overflow-hidden">
     // <div className="absolute inset-0">
@@ -48,7 +48,7 @@ const HeroSection = () => {
     //           <input
     //             className="text-base bg-transparent text-white/80 flex-grow outline-none px-2"
     //             type="text"
-    //             placeholder="Search for your bike"
+    //             placeholder="Search for your Car"
     //             value={searchTerm}
     //             onChange={handleSearchChange}
     //           />
@@ -122,7 +122,7 @@ const HeroSection = () => {
                 <input
                  className="text-base bg-transparent text-white/80 flex-grow outline-none px-2 "
                  type="text"
-                 placeholder="Search for your bike"
+                 placeholder="Search for your Car"
                  value={searchTerm}
                  onChange={handleSearchChange}
                />

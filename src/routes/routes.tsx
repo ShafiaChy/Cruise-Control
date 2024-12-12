@@ -6,12 +6,13 @@ import { adminRoutes } from "./admin.routes";
 import { userRoutes } from "./user.routes";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
-import BikeDetails from "../components/User/BikeDetails";
-import BikeListing from "../pages/BikeListing";
+
+import CarListing from "../pages/CarListing";
 import WhoAreWE from "../components/About/WhoAreWe";
 import History from "../components/About/History";
 import ContactInfo from "../pages/ContactInfo";
 import NotFound from "../components/NotFound";
+import CarDetails from "../components/User/CarDetails";
 
 export const router = createBrowserRouter([
   {
@@ -35,12 +36,12 @@ export const router = createBrowserRouter([
         element: <ContactInfo />,
       },
       {
-        path: "/bike-listing",
-        element: <BikeListing />,
+        path: "/Car-listing",
+        element: <CarListing />,
       },
       {
-        path: `/bike-details/:bikeId`,
-        element: <BikeDetails />,
+        path: `/Car-details/:carId`,
+        element: <CarDetails />,
       },
 
       {

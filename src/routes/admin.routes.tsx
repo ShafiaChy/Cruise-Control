@@ -2,9 +2,11 @@ import { Navigate } from "react-router-dom";
 import MyProfile from "../components/MyProfile";
 import ProtectedDashboardLayout from "../layouts/ProtectedDashboardLayout";
 import Dashboard from "../pages/Dashboard";
-import BikeManagement from "../components/Admin/BikeManagement";
+
 import UserManagement from "../components/Admin/UserManagement";
-import ReturnBike from "../components/Admin/ReturnBike";
+import CarManagement from "../components/Admin/CarManagement";
+import RentalCar from "../components/Admin/ReturnCar";
+
 
 export const adminRoutes = {
   path: "/admin",
@@ -20,9 +22,9 @@ export const adminRoutes = {
       children: [
         { path: "", element: <Navigate to="profile" /> },
         { path: "profile", element: <MyProfile /> },
-        { path: "bike-management", element: <BikeManagement /> },
+        { path: "Car-management", element: <CarManagement /> },
         { path: "user-management", element: <UserManagement /> },
-        { path: "return-bike", element: <ReturnBike /> },
+        { path: "return-Car", element: <RentalCar /> },
       ],
     },
   ],

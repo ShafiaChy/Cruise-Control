@@ -129,7 +129,7 @@ CARD DESIGN
   transition-delay: 0.25s;
 }
 
-/* create bike */
+/* create Car */
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -171,7 +171,7 @@ CARD DESIGN
     opacity: 0;
   }
 }
-/* create bike */
+/* create Car */
 
 @keyframes slide-in {
   0% {

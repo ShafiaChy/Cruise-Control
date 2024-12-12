@@ -18,7 +18,7 @@ const History = () => {
               Founding Year - 2015
             </h3>
             <p className="text-sm leading-snug tracking-wide text-gray-800 text-opacity-100">
-              Our bike rental service began in 2015 with just a handful of bikes
+              Our Car rental service began in 2015 with just a handful of Cars
               and a mission to make city commuting eco-friendly and enjoyable.
               The early days were challenging, but our passion kept us moving
               forward.
@@ -55,7 +55,7 @@ const History = () => {
               Innovation - 2019
             </h3>
             <p className="text-sm leading-snug tracking-wide text-gray-800 text-opacity-100">
-              In 2019, we introduced electric bikes to our lineup, offering a
+              In 2019, we introduced electric Cars to our lineup, offering a
               more sustainable and accessible option for all types of riders.
               This innovation marked a significant step in our journey.
             </p>
@@ -73,7 +73,7 @@ const History = () => {
               Today - 2024
             </h3>
             <p className="text-sm font-medium leading-snug tracking-wide text-gray-800 text-opacity-100">
-              Today, we are proud to be one of the leading bike rental services,
+              Today, we are proud to be one of the leading Car rental services,
               known for our quality, service, and commitment to sustainability.
               Our journey continues as we explore new ways to enhance the biking
               experience.

@@ -1,24 +1,24 @@
 <div align="center">
-  <h1>Bike Rental Service Website - Frontend</h1>
+  <h1>Car Rental Service Website - Frontend</h1>
 </div>
 ---
 
 ## Introduction
 
-The frontend for the Bike Rental Service Website provides a user-friendly interface for browsing and booking bikes. It offers features like user authentication, bike management, and rental processing, with a clean and responsive design.
+The frontend for the Car Rental Service Website provides a user-friendly interface for browsing and booking Cars. It offers features like user authentication, Car management, and rental processing, with a clean and responsive design.
 
-[Live Demo](https://bike-rental-service-client.vercel.app/)
+[Live Demo](https://Car-rental-service-client.vercel.app/)
 
 ## Features
 
 - User Authentication (Sign Up, Login, Logout).
 - User Profile Management.
-- Bike Listing with advanced filtering and search functionality.
-- Detailed Bike View with booking options.
+- Car Listing with advanced filtering and search functionality.
+- Detailed Car View with booking options.
 - Rental Management with payment processing.
-- Admin Dashboard for bike, user, and coupon management.
+- Admin Dashboard for Car, user, and coupon management.
 - Responsive design for all devices.
-- Additional features like coupons, side-by-side bike comparison, and dark mode.
+- Additional features like coupons, side-by-side Car comparison, and dark mode.
 
 ## Technology Stack
 
@@ -38,8 +38,8 @@ The frontend for the Bike Rental Service Website provides a user-friendly interf
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/NusratParvin/Bike-Rental-Service-Client
-   cd bike-rental-service-frontend
+   git clone https://github.com/NusratParvin/Car-Rental-Service-Client
+   cd Car-rental-service-frontend
    ```
 
 ### Install dependencies:
@@ -70,14 +70,14 @@ npm start
 
 - Users can sign up with their details or log in to access the dashboard.
 
-#### Browse Bikes:
+#### Browse Cars:
 
-- Use the home page search bar to find available bikes.
-- Filter bikes by brand, model, or availability.
+- Use the home page search bar to find available Cars.
+- Filter Cars by brand, model, or availability.
 
-#### Book a Bike:
+#### Book a Car:
 
-- View detailed bike information and book a bike by choosing a start time and proceeding to payment.
+- View detailed Car information and book a Car by choosing a start time and proceeding to payment.
 
 #### Manage Rentals:
 
@@ -85,7 +85,7 @@ npm start
 
 #### Admin Access:
 
-- Admin users can manage bikes, users, and coupons through the Admin Dashboard.
+- Admin users can manage Cars, users, and coupons through the Admin Dashboard.
 
 ## Screenshots
 
@@ -95,7 +95,7 @@ _Screenshots of the application go here._
 
 - **API Failures:** Displayed via toast notifications.
 - **Form Validation Errors:** Shown next to the respective fields.
-- **No Data Handling:** Friendly messages when no bikes or rentals are available.
+- **No Data Handling:** Friendly messages when no Cars or rentals are available.
 - **404 Page:** Custom-designed for unmatched routes.
 
 ## UI/UX
@@ -107,7 +107,7 @@ _Screenshots of the application go here._
 ## Bonus Features
 
 - **Coupon Functionality:** Users can apply discount coupons during checkout.
-- **Side-by-Side Comparison:** Compare multiple bikes.
+- **Side-by-Side Comparison:** Compare multiple Cars.
 - **Micro-Animations:** Enhance user experience with subtle animations.
 
 ## Deliverables

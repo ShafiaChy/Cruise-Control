@@ -12,14 +12,14 @@ import PaymentSuccess from "./Success";
 
 type CheckoutFormProps = {
   amount: number;
-  bikeId: string;
+  carId: string;
   rentalId?: string;
   startTime?: string;
 };
 
 const CheckoutForm: React.FC<CheckoutFormProps> = ({
   amount,
-  bikeId,
+  carId,
   rentalId,
   startTime,
 }) => {
@@ -94,7 +94,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
       const commonPaymentData = {
         transactionId: paymentIntent?.id,
         amount,
-        bikeId,
+        carId,
         userId,
         email,
       };
@@ -196,7 +196,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
             <button
               type="submit"
               disabled={!stripe || processing}
-              className="rounded-none hover:outline-none w-1/6 text-white text-xl font-semibold"
+              className="rounded-none bg-orange-600 hover:outline-none w-1/6 text-white text-xl font-semibold"
             >
               {processing ? "Processing..." : "Pay Now"}
             </button>

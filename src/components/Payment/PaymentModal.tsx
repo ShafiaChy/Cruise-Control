@@ -7,10 +7,10 @@ import { useCurrentUser } from "../../redux/features/auth/authSlice";
 interface PaymentModalProps {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
-  bikeId: string;
+  carId: string;
 }
 
-const PaymentModal = ({ isOpen, setIsOpen, bikeId }: PaymentModalProps) => {
+const PaymentModal = ({ isOpen, setIsOpen, carId }: PaymentModalProps) => {
   const [startTime, setStartTime] = useState("");
   const navigate = useNavigate();
   const isUser = useAppSelector(useCurrentUser);
@@ -29,7 +29,7 @@ const PaymentModal = ({ isOpen, setIsOpen, bikeId }: PaymentModalProps) => {
 
   const handleProceedToPayment = () => {
     const bookingData = {
-      bikeId,
+      carId,
       startTime,
       amount: 100,
     };

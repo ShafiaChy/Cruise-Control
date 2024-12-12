@@ -13,8 +13,8 @@ import { useAppSelector } from "../redux/hooks";
 const userMenuItems = [
   { name: "Profile", path: "profile", icon: <FaUser className="w-6 h-6" /> },
   {
-    name: "Bike Listing",
-    path: "bike-listing",
+    name: "Car Listing",
+    path: "car-listing",
     icon: <FaMotorcycle className="w-6 h-6" />,
   },
   {
@@ -32,8 +32,8 @@ const userMenuItems = [
 const adminMenuItems = [
   { name: "Profile", path: "profile", icon: <FaUser className="w-6 h-6" /> },
   {
-    name: "Bike Management",
-    path: "bike-management",
+    name: "Car Management",
+    path: "Car-management",
     icon: <FaMotorcycle className="w-6 h-6" />,
   },
   {
@@ -42,8 +42,8 @@ const adminMenuItems = [
     icon: <FaUsers className="w-6 h-6" />,
   },
   {
-    name: "Return Bike",
-    path: "return-bike",
+    name: "Return Car",
+    path: "return-Car",
     icon: <FaToolbox className="w-6 h-6" />,
   },
 ];

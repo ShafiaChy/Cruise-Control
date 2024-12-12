@@ -22,7 +22,7 @@ export const paymentApi = baseApi.injectEndpoints({
       query: (paymentData: {
         transactionId: string;
         amount: number;
-        bikeId: string;
+        carId: string;
         userId: string;
         startTime: string;
         email: string;
@@ -42,7 +42,7 @@ export const paymentApi = baseApi.injectEndpoints({
         paymentData: {
           transactionId: string;
           amount: number;
-          bikeId: string;
+          carId: string;
           userId: string;
           email: string;
         };

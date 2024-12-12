@@ -8,7 +8,7 @@ import {
   FaSignInAlt,
   FaUserPlus,
 } from "react-icons/fa";
-import { LuBike } from "react-icons/lu";
+import { LuCar } from "react-icons/lu";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { logout, useCurrentUser } from "../redux/features/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
@@ -30,12 +30,16 @@ console.log(isUser)
 
   useEffect(() => {
     if (location.pathname == '/' ||  location?.pathname == '/login') {
-      setIsVisited(true);
+      setIsVisited(false);
+    }
+    else {
+      setIsVisited(true); // Optionally reset to false when on homepage or login
     }
     if(location?.pathname == '/login'){
       setIsLogin(true)
     }
-  }, [location?.pathname, isUser?.role]);
+    console.log(location?.pathname, isVisited)
+  }, [location?.pathname, isUser?.role, isVisited]);
 
   const toggleSubmenu = () => {
     setIsSubmenuOpen(!isSubmenuOpen);
@@ -76,7 +80,7 @@ console.log(isUser)
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 pt-4 ${
-        scrolled || !isVisited? "bg-gray-900 shadow-lg" : "bg-transparent"
+        scrolled || isVisited? "bg-gray-900 shadow-lg" : "bg-transparent"
       }`}
     >
       {/* <nav className="fixed top-0 left-0 right-0 z-50  pt-4 pb-0 bg-transparent "> */}
@@ -149,7 +153,7 @@ console.log(isUser)
                   <span className="absolute left-1/2 -top-5 w-0 h-1 bg-orange-500 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
                   <FaChevronDown className="ml-2 w-3 h-3" />
                 </div>
-                <ul className="absolute z-50 left-0 top-full mt-2 w-40 bg-transparent text-white opacity-0 group-hover:opacity-100 transform scale-y-0 group-hover:scale-y-100 origin-top transition-all duration-300 ease-in-out">
+                <ul className="absolute z-50 left-0 top-full mt-2 w-40 bg-transparent text-orange-500 opacity-0 group-hover:opacity-100 transform scale-y-0 group-hover:scale-y-100 origin-top transition-all duration-300 ease-in-out">
                   <li className="px-4 py-2 hover:bg-gray-700 hover:text-orange-500">
                     <NavLink
                       to="/about/who-are-we"
@@ -175,12 +179,12 @@ console.log(isUser)
 
               <li className="relative group text-white hover:text-orange-500 duration-300 px-4 cursor-pointer">
                 <NavLink
-                  to="/bike-listing"
+                  to="/Car-listing"
                   className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "text-orange-500" : ""
                   }
                 >
-                  BIKE LISTING
+                  CAR LISTING
                 </NavLink>
                 <span className="absolute left-1/2 -top-5 w-0 h-1 bg-orange-500 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
               </li>
@@ -302,7 +306,7 @@ console.log(isUser)
           to="/"
           className="flex justify-center items-center text-white tracking-wide font-teko "
         >
-          <LuBike className="w-7 h-7 mr-2" />
+          <LuCar className="w-7 h-7 mr-2" />
           <div className="text-4xl text-orange-500">RideON</div>
         </Link>
         {/* </div> */}
@@ -434,12 +438,12 @@ console.log(isUser)
 
           <li className="relative group hover:text-orange-500 duration-300 px-4  cursor-pointer">
             <NavLink
-              to="/bike-listing"
+              to="/Car-listing"
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-orange-500" : ""
               }
             >
-              BIKE LISTING
+              Car LISTING
             </NavLink>
           </li>
 

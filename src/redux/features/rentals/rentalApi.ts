@@ -20,7 +20,7 @@ export const rentalApi = baseApi.injectEndpoints({
 
     createRental: builder.mutation({
       query: (rentalData: {
-        bikeId: string;
+        carId: string;
         startTime: string;
         transactionId?: string;
         userId: string;
@@ -43,7 +43,7 @@ export const rentalApi = baseApi.injectEndpoints({
       invalidatesTags: ["Rental"],
     }),
 
-    returnBike: builder.mutation({
+    returnCar: builder.mutation({
       query: (rentalId) => ({
         url: `/rentals/${rentalId}/return`,
         method: "PUT",
@@ -59,5 +59,5 @@ export const {
   useGetAllRentalsQuery,
   useCreateRentalMutation,
   usePayForRentalMutation,
-  useReturnBikeMutation,
+  useReturnCarMutation,
 } = rentalApi;

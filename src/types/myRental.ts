@@ -3,7 +3,7 @@ import { TAdminUser } from "./user";
 
 export type TMyRental = {
   _id: string;
-  bikeId: {
+  carId: {
     _id: string;
     name: string;
     image: string;
@@ -19,7 +19,7 @@ export type TMyRental = {
 export type TRental = {
   _id: string;
   userId: string;
-  bikeId: string;
+  carId: string;
   startTime: Date;
   returnTime?: Date;
   totalCost?: number;
@@ -31,7 +31,7 @@ export type TRental = {
 export type TAdminRental = {
   _id: string;
   userId: TAdminUser;
-  bikeId: TAdminCar;
+  carId: TAdminCar;
   startTime: Date;
   returnTime?: Date | null;
   totalCost: number;

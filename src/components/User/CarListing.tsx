@@ -1,10 +1,11 @@
 import { useState } from "react";
-import SingleBike from "./SingleBike";
-import { useGetAllBikesQuery } from "../../redux/features/bikes/bikesApi";
+import SingleCar from "./SingleCar";
+
 import { TCar } from "../../types/car";
 import Spinner from "../Spinner";
+import { useGetAllCarsQuery } from "../../redux/features/cars/carsApi";
 
-const BikeListing = () => {
+const CarListing = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filters, setFilters] = useState({
     priceRange: "",
@@ -14,14 +15,14 @@ const BikeListing = () => {
   });
   const [sortOrder, setSortOrder] = useState("");
 
-  const { data, isLoading } = useGetAllBikesQuery(undefined);
-  const bikes: TCar[] = data?.data || [];
+  const { data, isLoading } = useGetAllCarsQuery(undefined);
+  const Cars: TCar[] = data?.data || [];
 
   // Dynamic filter options
   const filterOptions = {
     priceRange: ["All", "500", "1000", "2000", "5000"],
-    brand: ["All", ...Array.from(new Set(bikes.map((bike) => bike.brand)))],
-    model: ["All", ...Array.from(new Set(bikes.map((bike) => bike.model)))],
+    brand: ["All", ...Array.from(new Set(Cars.map((Car) => Car.brand)))],
+    model: ["All", ...Array.from(new Set(Cars.map((Car) => Car.model)))],
     availability: ["All", "Available", "Unavailable"],
   };
 
@@ -46,35 +47,35 @@ const BikeListing = () => {
     setSearchQuery("");
   };
 
-  // Filter and sort bikes
-  const filteredBikes = bikes
-    .filter((bike: TCar) =>
-      bike.name.toLowerCase().includes(searchQuery.toLowerCase())
+  // Filter and sort Cars
+  const filteredCars = Cars
+    .filter((Car: TCar) =>
+      Car.name.toLowerCase().includes(searchQuery.toLowerCase())
     )
     .filter(
-      (bike: TCar) =>
+      (Car: TCar) =>
         !filters.priceRange ||
         filters.priceRange === "All" ||
-        bike.pricePerHour <= Number(filters.priceRange)
+        Car.pricePerHour <= Number(filters.priceRange)
     )
     .filter(
-      (bike: TCar) =>
+      (Car: TCar) =>
         !filters.brand ||
         filters.brand === "All" ||
-        bike.brand.toLowerCase() === filters.brand.toLowerCase()
+        Car.brand.toLowerCase() === filters.brand.toLowerCase()
     )
     .filter(
-      (bike: TCar) =>
+      (Car: TCar) =>
         !filters.model ||
         filters.model === "All" ||
-        bike.model.toLowerCase() === filters.model.toLowerCase()
+        Car.model.toLowerCase() === filters.model.toLowerCase()
     )
     .filter(
-      (bike: TCar) =>
+      (Car: TCar) =>
         !filters.availability ||
         filters.availability === "All" ||
-        (filters.availability === "Available" && bike.isAvailable) ||
-        (filters.availability === "Unavailable" && !bike.isAvailable)
+        (filters.availability === "Available" && Car.isAvailable) ||
+        (filters.availability === "Unavailable" && !Car.isAvailable)
     )
     .sort((a, b) =>
       sortOrder === "asc"
@@ -195,9 +196,9 @@ const BikeListing = () => {
                 <Spinner />
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-6 mb-24 overflow-hidden  ">
-                  {filteredBikes && filteredBikes.length > 0 ? (
-                    filteredBikes.map((bike: TCar) => (
-                      <SingleBike key={bike._id} bike={bike} />
+                  {filteredCars && filteredCars.length > 0 ? (
+                    filteredCars.map((Car: TCar) => (
+                      <SingleCar key={Car._id} Car={Car} />
                     ))
                   ) : (
                     <div className="flex justify-center items-center py-6">
@@ -216,4 +217,4 @@ const BikeListing = () => {
   );
 };
 
-export default BikeListing;
+export default CarListing;

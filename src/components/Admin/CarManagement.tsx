@@ -1,11 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ChangeEvent, useState } from "react";
-import {
-  useGetAllBikesQuery,
-  useCreateBikeMutation,
-  useUpdateBikeMutation,
-  useDeleteBikeMutation,
-} from "../../redux/features/bikes/bikesApi";
+
 import { TCar } from "../../types/car";
 import {
   FaCheckCircle,
@@ -13,68 +8,70 @@ import {
   FaTimesCircle,
   FaTrashAlt,
 } from "react-icons/fa";
-import BikeModal from "./BikeModal";
+
 import Spinner from "../Spinner";
 import LoadingError from "../LoadingError";
 import ConfirmationModal from "../ConfirmationModal";
 import { toast } from "sonner";
+import { useCreateCarMutation, useDeleteCarMutation, useGetAllCarsQuery, useUpdateCarMutation } from "../../redux/features/cars/carsApi";
+import CarModal from "./CarModal";
 
-const BikeManagement = () => {
+const CarManagement = () => {
   const {
-    data: bikesResponse,
+    data: CarsResponse,
     error,
     isLoading,
     refetch,
-  } = useGetAllBikesQuery(undefined);
-  const [createBike] = useCreateBikeMutation();
-  const [updateBike] = useUpdateBikeMutation();
-  const [deleteBike] = useDeleteBikeMutation();
-  const [selectedBike, setSelectedBike] = useState<TCar | null>(null);
+  } = useGetAllCarsQuery(undefined);
+  const [createCar] = useCreateCarMutation();
+  const [updateCar] = useUpdateCarMutation();
+  const [deleteCar] = useDeleteCarMutation();
+  const [selectedCar, setSelectedCar] = useState<TCar | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
-  const [bikeToDelete, seTCarToDelete] = useState<string | null>(null);
+  const [CarToDelete, seTCarToDelete] = useState<string | null>(null);
 
   const [filter, setFilter] = useState("");
   const [selectedBrand, setSelectedBrand] = useState("All");
   const [selectedModel, setSelectedModel] = useState("All");
   const [selectedAvailability, setSelectedAvailability] = useState("All");
 
-  const bikes = bikesResponse?.data || [];
+  const Cars = CarsResponse?.data || [];
 
   const filterOptions = {
     brand: [
       "All",
-      ...new Set(bikes.map((bike: TCar) => bike.brand)),
+      ...new Set(Cars.map((Car: TCar) => Car.brand)),
     ] as string[],
     model: [
       "All",
-      ...new Set(bikes.map((bike: TCar) => bike.model)),
+      ...new Set(Cars.map((Car: TCar) => Car.model)),
     ] as string[],
     availability: ["All", "Available", "Unavailable"] as string[],
   };
 
-  const handleEdiTCar = (bike: TCar) => {
-    setSelectedBike(bike);
+  const handleEdiTCar = (Car: TCar) => {
+    setSelectedCar(Car);
     setIsModalOpen(true);
   };
 
-  const handleCreateBike = () => {
-    setSelectedBike(null);
+  const handleCreateCar = () => {
+    setSelectedCar(null);
     setIsModalOpen(true);
   };
 
-  const handleDeleteBike = async (bikeId: string) => {
-    seTCarToDelete(bikeId);
+  const handleDeleteCar = async (carId: string) => {
+    seTCarToDelete(carId);
     setIsConfirmModalOpen(true);
   };
 
-  const confirmDeleteBike = async () => {
-    if (bikeToDelete) {
+  const confirmDeleteCar = async () => {
+    if (CarToDelete) {
       try {
-        await deleteBike(bikeToDelete).unwrap();
+        await deleteCar(CarToDelete).unwrap();
         refetch();
       } catch (error) {
-        console.error("Failed to delete bike", error);
+        console.error("Failed to delete Car", error);
       } finally {
         setIsConfirmModalOpen(false);
         seTCarToDelete(null);
@@ -86,33 +83,33 @@ const BikeManagement = () => {
     setIsModalOpen(false);
   };
 
-  const handleModalSubmit = async (bikeData: Omit<TCar, "_id">) => {
+  const handleModalSubmit = async (CarData: Omit<TCar, "_id">) => {
     const toastId = toast.loading("Processing...");
 
     // try {
-    //   if (selectedBike) {
-    //     const id = selectedBike?._id;
-    //     await updateBike({ id, ...bikeData }).unwrap();
+    //   if (selectedCar) {
+    //     const id = selectedCar?._id;
+    //     await updateCar({ id, ...CarData }).unwrap();
     //   } else {
-    //     await createBike(bikeData).unwrap();
+    //     await createCar(CarData).unwrap();
     //   }
     //   refetch();
     // } catch (error) {
-    //   console.error("Failed to save bike", error);
+    //   console.error("Failed to save Car", error);
     // }
     // setIsModalOpen(false);
     try {
-      if (selectedBike) {
-        const id = selectedBike?._id;
-        await updateBike({ id, ...bikeData }).unwrap();
-        toast.success("Bike updated successfully!", {
+      if (selectedCar) {
+        const id = selectedCar?._id;
+        await updateCar({ id, ...CarData }).unwrap();
+        toast.success("Car updated successfully!", {
           id: toastId,
           duration: 2000,
           className: "text-orange-600",
         });
       } else {
-        await createBike(bikeData).unwrap();
-        toast.success("Bike created successfully!", {
+        await createCar(CarData).unwrap();
+        toast.success("Car created successfully!", {
           id: toastId,
           duration: 2000,
           className: "text-orange-600",
@@ -125,7 +122,7 @@ const BikeManagement = () => {
         duration: 2000,
         className: "text-red-600",
       });
-      console.error("Failed to save bike", error);
+      console.error("Failed to save Car", error);
     } finally {
       setIsModalOpen(false);
     }
@@ -147,16 +144,16 @@ const BikeManagement = () => {
     setSelectedAvailability(event.target.value);
   };
 
-  const filteredBikes = bikes.filter((bike: TCar) => {
+  const filteredCars = Cars.filter((Car: TCar) => {
     const matchesBrand =
-      selectedBrand === "All" || bike.brand === selectedBrand;
+      selectedBrand === "All" || Car.brand === selectedBrand;
     const matchesModel =
-      selectedModel === "All" || bike.model === selectedModel;
+      selectedModel === "All" || Car.model === selectedModel;
     const matchesAvailability =
       selectedAvailability === "All" ||
-      (selectedAvailability === "Available" && bike.isAvailable) ||
-      (selectedAvailability === "Unavailable" && !bike.isAvailable);
-    const matchesName = bike.name.toLowerCase().includes(filter.toLowerCase());
+      (selectedAvailability === "Available" && Car.isAvailable) ||
+      (selectedAvailability === "Unavailable" && !Car.isAvailable);
+    const matchesName = Car.name.toLowerCase().includes(filter.toLowerCase());
 
     return matchesBrand && matchesModel && matchesAvailability && matchesName;
   });
@@ -165,7 +162,7 @@ const BikeManagement = () => {
     <div className="mx-auto max-w-screen-lg  ">
       <div className="md:flex md:items-center md:justify-between flex-col md:flex-row">
         <p className="flex-1 text-base font-semibold text-gray-300">
-          Number of available bikes: {filteredBikes.length}
+          Number of available Cars: {filteredCars.length}
         </p>
 
         <div className="mt-4 md:mt-0 text-white w-full md:w-9/12">
@@ -268,12 +265,12 @@ const BikeManagement = () => {
 
               <section className="flex justify-center items-center mt-5 ps-6">
                 <button
-                  onClick={handleCreateBike}
+                  onClick={handleCreateCar}
                   className="group flex justify-center py-0 px-2 rounded-none drop-shadow-xl bg-orange-600 from-gray-800 to-black text-white text-xl focus:outline-none hover:translate-y-2 hover:rounded-[50%] transition-all duration-500 hover:from-[#331029] hover:to-[#310413]"
                 >
                   +
                   <span className="absolute opacity-0 group-hover:opacity-100 group-hover:text-gray-100 group-hover:text-sm w-20 group-hover:-translate-y-7 duration-500">
-                    Create Bike
+                    Create Car
                   </span>
                 </button>
               </section>
@@ -286,7 +283,7 @@ const BikeManagement = () => {
         <Spinner />
       ) : error ? (
         <LoadingError />
-      ) : !filteredBikes.length ? (
+      ) : !filteredCars.length ? (
         <div className="flex justify-center items-center py-6  mt-12">
           <div className="bg-transparent text-white text-2xl px-4 py-3">
             <strong className="font-bold">No Data Found</strong>
@@ -329,35 +326,35 @@ const BikeManagement = () => {
               </thead>
 
               <tbody className="bg-white divide-y divide-gray-300">
-                {filteredBikes.map((bike: TCar, index: number) => (
-                  <tr key={bike._id} className="hover:bg-gray-100">
+                {filteredCars.map((Car: TCar, index: number) => (
+                  <tr key={Car._id} className="hover:bg-gray-100">
                     <td className="py-4 text-sm font-bold text-gray-800 px-2 md:px-4 text-center w-8">
                       {index + 1}
                     </td>
                     <td className="text-sm text-gray-900 px-0 md:px-0 w-20">
                       <img
-                        src={bike.image}
-                        alt={bike.name}
+                        src={Car.image}
+                        alt={Car.name}
                         className="w-full h-16 object-cover"
                       />
                     </td>
                     <td className="text-sm font-semibold text-gray-900 px-4 md:px-6">
-                      {bike.name}
+                      {Car.name}
                     </td>
                     <td className="text-sm text-gray-900 px-4 md:px-6">
-                      {bike.brand}
+                      {Car.brand}
                     </td>
                     <td className="text-sm text-gray-900 px-4 md:px-6">
-                      {bike.model}
+                      {Car.model}
                     </td>
                     <td className="text-sm text-gray-500 px-4 md:px-6 whitespace-normal break-words max-w-[200px]">
-                      {bike.description}
+                      {Car.description}
                     </td>
                     <td className="text-sm text-gray-500 px-4 md:px-6">
-                      ${bike.pricePerHour}
+                      ${Car.pricePerHour}
                     </td>
                     <td className="text-sm text-center text-gray-500 w-12">
-                      {bike.isAvailable ? (
+                      {Car.isAvailable ? (
                         <FaCheckCircle
                           className="text-orange-600 w-4 h-4 mx-auto"
                           aria-label="Available"
@@ -371,18 +368,18 @@ const BikeManagement = () => {
                     </td>
                     <td className="text-sm text-center flex items-center justify-center gap-1 mx-4 text-gray-500 w-20 px-4 md:px-8 py-4">
                       <button
-                        onClick={() => handleEdiTCar(bike)}
+                        onClick={() => handleEdiTCar(Car)}
                         className="text-orange-600 bg-transparent border-none hover:text-orange-800 focus:outline-none"
                       >
-                        <FaEdit className="w-4 h-4" aria-label="Edit Bike" />
+                        <FaEdit className="w-4 h-4" aria-label="Edit Car" />
                       </button>
                       <button
-                        onClick={() => handleDeleteBike(bike._id)}
+                        onClick={() => handleDeleteCar(Car._id)}
                         className="text-red-600 bg-transparent border-none hover:text-red-800 focus:outline-none"
                       >
                         <FaTrashAlt
                           className="w-4 h-4"
-                          aria-label="Delete Bike"
+                          aria-label="Delete Car"
                         />
                       </button>
                     </td>
@@ -395,8 +392,8 @@ const BikeManagement = () => {
       )}
 
       {isModalOpen && (
-        <BikeModal
-          bike={selectedBike ?? undefined}
+        <CarModal
+          Car={selectedCar ?? undefined}
           onSubmit={handleModalSubmit}
           onClose={handleModalClose}
         />
@@ -405,13 +402,13 @@ const BikeManagement = () => {
       {/* Confirmation Modal */}
       {isConfirmModalOpen && (
         <ConfirmationModal
-          onConfirm={confirmDeleteBike}
+          onConfirm={confirmDeleteCar}
           onCancel={() => setIsConfirmModalOpen(false)}
-          message="Are you sure you want to delete this bike?"
+          message="Are you sure you want to delete this Car?"
         />
       )}
     </div>
   );
 };
 
-export default BikeManagement;
+export default CarManagement;

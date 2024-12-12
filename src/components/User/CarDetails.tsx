@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useGeTCarByIdQuery } from "../../redux/features/bikes/bikesApi";
+
 import { useState } from "react";
 import Spinner from "../Spinner";
 import LoadingError from "../LoadingError";
@@ -7,10 +7,11 @@ import { TCar } from "../../types/car";
 import PaymentModal from "../Payment/PaymentModal";
 import { useAppSelector } from "../../redux/hooks";
 import { useCurrentUser } from "../../redux/features/auth/authSlice";
+import { useGeTCarByIdQuery } from "../../redux/features/cars/carsApi";
 
-const BikeDetails = () => {
-  const { bikeId } = useParams();
-  const { data, error, isLoading } = useGeTCarByIdQuery(bikeId);
+const CarDetails = () => {
+  const { carId } = useParams();
+  const { data, error, isLoading } = useGeTCarByIdQuery(carId);
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const isUser = useAppSelector(useCurrentUser);
 
@@ -22,7 +23,7 @@ const BikeDetails = () => {
     return <LoadingError />;
   }
 
-  const bike: TCar = data.data;
+  const Car: TCar = data.data;
 
   return (
     // <section className="w-11/12 mx-auto my-28">
@@ -31,63 +32,63 @@ const BikeDetails = () => {
         <div className="relative flex h-full flex-col-reverse md:flex-row">
           <div className="relative p-8 md:w-4/6">
             <div className="flex flex-col md:flex-row">
-              <h2 className="mb-2 text-4xl font-teko">{bike.name}</h2>
+              <h2 className="mb-2 text-4xl font-teko">{Car.name}</h2>
               <span className="ml-4 text-sm uppercase text-orange-600">
-                {bike.brand}
+                {Car.brand}
               </span>
             </div>
-            <p className="mt-3 text-base tracking-normal">{bike.description}</p>
+            <p className="mt-3 text-base tracking-normal">{Car.description}</p>
             <div className="flex flex-col md:flex-row md:items-end">
               <p className="mt-6 text-4xl font-black">
-                ${bike.pricePerHour}
+                ${Car.pricePerHour}
                 <sup className="align-super text-sm">/hr</sup>
               </p>
               <span className="ml-4 text-sm uppercase">
-                CC: {bike.cc} | Year: {bike.year}
+                CC: {Car.cc} | Year: {Car.year}
               </span>
             </div>
             <div className="mt-6">
               <p
                 className={`text-lg font-normal ${
-                  bike.isAvailable ? "text-orange-600" : "text-red-700"
+                  Car.isAvailable ? "text-orange-600" : "text-red-700"
                 }`}
               >
-                {bike.isAvailable ? "Available" : "Unavailable"}
+                {Car.isAvailable ? "Available" : "Unavailable"}
               </p>
             </div>
             <div className="mt-8 flex flex-col sm:flex-row">
               <button
              
                 onClick={() => setShowPaymentModal(true)}
-                disabled={!bike.isAvailable}
+                disabled={!Car.isAvailable}
                 className={`relative px-24 py-1 text-base rounded-none isolation-auto z-10 border overflow-hidden ${
-                  bike.isAvailable
+                  Car.isAvailable
                     ? "bg-white/90 text-gray-800 border-gray-900 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:bg-orange-600 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-500 focus:outline-none"
                     : "bg-gray-300 text-gray-500 border-gray-500 cursor-not-allowed"
                 }`}
               >
-                {bike.isAvailable ? "Book Now" : "Not Available"}
+                {Car.isAvailable ? "Book Now" : "Not Available"}
               </button>
             </div>
           </div>
           <div className="mx-auto flex items-center px-5 pt-1 md:p-8">
             <img
               className="block h-72 max-w-full rounded-none shadow-2xl"
-              src={bike.image || defaultImageUrl}
-              alt={bike.name}
+              src={Car.image || defaultImageUrl}
+              alt={Car.name}
             />
           </div>
         </div>
       </div>
-      {bikeId && (
+      {carId && (
         <PaymentModal
           isOpen={showPaymentModal}
           setIsOpen={setShowPaymentModal}
-          bikeId={bikeId}
+          carId={carId}
         />
       )}
     </section>
   );
 };
 
-export default BikeDetails;
+export default CarDetails;
