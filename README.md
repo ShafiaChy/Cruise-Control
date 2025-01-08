@@ -5,7 +5,7 @@
 
 ## Introduction
 
-The frontend for the Car Rental Service Website provides a user-friendly interface for browsing and booking Cars. It offers features like user authentication, Car management, and rental processing, with a clean and responsive design.
+A Car Rental Service Website that provides car rental process, offering an easy-to-use platform for booking and managing rentals. It offers features like user authentication, Car management, and rental processing, with a clean and responsive design.
 
 [Live Demo](https://cruise-control-rho.vercel.app/)
 
