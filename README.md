@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Car Rental Service Website - Frontend</h1>
+  <h1>Car Rental Service Website </h1>
 </div>
 ---
 
